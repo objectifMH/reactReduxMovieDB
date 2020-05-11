@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
 import './filmFav.scss';
-import axios from '../node_modules/axios';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
-import { Link } from '../node_modules/react-router-dom';
 
 export default class FilmFav extends Component {
 
@@ -28,7 +26,7 @@ export default class FilmFav extends Component {
         return (
             <div className=" container my-container-film">
                 <div className="gauche">
-                    <img  src={this.state.film.cover} ></img>
+                    <img  src={this.state.film.cover} alt={"Cover "+this.state.film.titre}></img>
                 </div>
                 <div className="centre">
                     <p>{this.state.film.titre}</p>

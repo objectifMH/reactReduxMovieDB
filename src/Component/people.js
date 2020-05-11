@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 
-import axios from '../node_modules/axios';
+import axios from 'axios';
 import './people.scss';
 
-import { Link } from '../node_modules/react-router-dom';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 export default class People extends Component {
 constructor(props) {
@@ -18,7 +15,8 @@ constructor(props) {
             urlQuery: "https://api.themoviedb.org/3/person/",
             urlImage: "https://image.tmdb.org/t/p/original",
             apiKey: "369db2052a84d1a49d133d25a3983cbd",
-            films: null
+            films: null,
+            isCollapse: false
 
         }
     }
@@ -62,6 +60,12 @@ constructor(props) {
         })
     }
 
+    myCollapse = () => {
+        this.setState(
+            prevState => ({ isCollapse: !this.state.isCollapse })
+        );
+    }
+
 
     render() {
         if ( this.state.acteur != null)
@@ -76,8 +80,8 @@ constructor(props) {
                     <div className="gauche">
                         {
                             this.state.acteur.profile_path !== null ? 
-                            <img src={this.state.urlImage+this.state.acteur.profile_path} /> :
-                            <img src={window.location.origin + '/no_image.png'} />
+                            <img src={this.state.urlImage+this.state.acteur.profile_path}  alt={this.state.acteur.name}/> :
+                            <img src={window.location.origin + '/no_image.png' }  alt={this.state.acteur.name} />
 
                         }
                         
@@ -88,8 +92,6 @@ constructor(props) {
                         <p>{this.state.acteur.place_of_birth}</p>
                         <p>{this.state.acteur.birthday}</p>
                         {this.state.acteur.deathday !== null ? this.state.acteurdeathday : ''}
-
-                        <br></br>
 
                                 <strong>{this.state.acteur.biography.length !== 0 ? 'Biographie:' : "" } 
                                     <br></br>
@@ -103,7 +105,8 @@ constructor(props) {
                         </div>
                         {
                             this.state.acteur.biography.split(' ').length >= 30 ? 
-                            <button  className="btn btn-info btn-sm mt-2 ml-3" data-toggle="collapse" data-target="#colapse-biography">Voir plus</button> 
+                            <button  className="btn btn-info btn-sm mt-2 ml-3" data-toggle="collapse" data-target="#colapse-biography" 
+                        onClick={this.myCollapse}>{this.state.isCollapse === false ? 'Voir plus' : 'Voir moins'}</button> 
                             : ''
                         }
 

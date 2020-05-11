@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import axios from '../node_modules/axios';
+import axios from 'axios';
 
 import './film.scss';
-import { Link } from '../node_modules/react-router-dom';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -88,56 +88,46 @@ export default class Film extends Component {
                             <br></br>
                             <span className="tagline">{this.state.film.tagline}</span>
                         </h1>
-
-
                         <div className="container-gd">
-                        <div className="gauche">
-                            <img src={srcPoster} />
+                            <div className="gauche">
+                                <img src={srcPoster}  alt={this.state.film.title}/>
 
-                        </div>
-                        <div className="droite">
-                        <div className="sypnosis">
-                                {
+                            </div>
+                            <div className="droite">
+                                <div className="sypnosis">
+                                    {
 
-                                    this.state.film.genres.map((genre, index) =>
-                                        <span key={index} className="btn btn-success mr-1">{genre.name}
+                                        this.state.film.genres.map((genre, index) =>
+                                            <span key={index} className="badge badge-success badge-pill mr-1 genre">{genre.name}
 
 
-                                        </span>
-                                    )
+                                            </span>)
 
-                                }
+                                    }
 
-                                <br></br><br></br><strong>Sypnosis: </strong>
-                                <br></br>
-                                <br></br>
+                                    <p>
+                                        <strong>Sypnosis: </strong>
+                                    </p>
+                                    <p>
+                                        {this.state.film.overview}
+                                    </p>
+                                    <span class="badge badge-warning badge-pill vote">Vote : {this.state.film.vote_average}</span>
+                                    
+                                    {this.state.acteurs != null ? 
 
-                                {this.state.film.overview}
-                                <span class="badge badge-warning badge-pill vote">Vote : {this.state.film.vote_average}</span>
-                                <br></br>
-                                {this.state.acteurs != null ? 
+                                        this.state.acteurs.cast.map((acteur, index) =>
 
-                                    this.state.acteurs.cast.map((acteur, index) =>
+                                            index <= 10 ? <Link className="nav-link link-people" to={'/people/' + acteur.id}  key={index}><span className="btn btn-info m-1 mt-3" >{acteur.name}</span></Link> :
+                                            ''
 
-                                        index <= 10 ? <Link className="nav-link link-people" to={'/people/' + acteur.id}  key={index}><span className="btn btn-info m-1 mt-3" >{acteur.name}</span></Link> :
-                                        ''
+                                        ) : 
+                                        <div className="spinner-border text-info"></div>
 
-                                    ) : 
-                                    <div className="spinner-border text-info"></div>
-
-                                }
+                                    }
+                                </div>
                             </div>
                         </div>
-
-                            
-
-                        </div>
-
-
                     </div>
-
-
-
                 </div>
             )
         else {

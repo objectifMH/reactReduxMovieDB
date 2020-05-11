@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { Link } from '../node_modules/react-router-dom';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 
 export default class Manav extends Component {

@@ -28,7 +28,7 @@ h3 {
 }
 
 .modal-close {
-    color: white;
+    color: red;
     transition: all .2s ease-in-out;
     cursor: pointer;
 

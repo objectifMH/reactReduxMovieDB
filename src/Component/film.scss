@@ -38,6 +38,11 @@
         font-size: large;
     }
 
+    .genre {
+        font-size: smal;    
+    }
+
+
     .link-people {
         display: inline-block;
         margin: 1px !important;
@@ -103,7 +108,7 @@
 
         img {
             height: 90%;
-            max-height: 100%;
+            //max-height: 100%;
             border-radius: 10px;
             border: 3px solid white;
             box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
