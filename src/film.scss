@@ -1,0 +1,117 @@
+.header-container {
+    height: 75vh;
+    margin-top: 10vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    background-attachment: fixed;
+
+    .date {
+        font-size: 20px;
+        color:lightgrey;
+        bottom: 12px;
+        right: 12px;
+        position: absolute;
+    }
+
+    .sypnosis{
+        position: relative;
+        padding: 15px;
+        color: white;
+
+        //border-right: 3px solid white;
+        //border-bottom: 3px solid white;
+        //box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    }
+
+    .tagline {
+        font-size: 22px;
+        color: white;
+    }
+
+    .vote {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        color: white;
+        font-size: large;
+    }
+
+    .link-people {
+        display: inline-block;
+        margin: 1px !important;
+        padding: 0px;
+    }
+
+    h1, p {
+        color: white;
+        padding: 3px;
+        top: 20px;
+        position: relative;
+        
+    }
+
+    h1 {
+        border: solid 3px white;
+        padding: 10px 15px;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    }
+}
+
+.header-container::after {
+    content: "";
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+.fa-arrow-alt-circle-left {
+    font-size: 34px !important;
+    left: 12px;
+    bottom: - 44px;
+    position: absolute;
+
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.fa-arrow-alt-circle-left:hover {
+    color: green;
+    transform: rotate(360deg)  scale(1.59);
+    
+
+}
+
+.container-gd {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+
+    //box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    
+    .gauche {
+        margin: 15px 4px;
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            height: 90%;
+            max-height: 100%;
+            border-radius: 10px;
+            border: 3px solid white;
+            box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        }
+    }
+
+    .droite {
+        flex: 5;
+    }
+
+}

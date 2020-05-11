@@ -1,0 +1,45 @@
+.my-container-film {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    border: 2px solid white;
+    border-radius: 5px;
+
+    .gauche {
+        height: 110px;
+
+        img {
+            max-height: 100%;
+        }
+    }
+
+    .centre {
+        flex-grow: 7;
+        padding: 5px 10px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        background: #480248;
+    }
+
+    .droite {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .fa-check {
+            font-size: 30px !important;
+            padding: 5px;
+            color: green;
+        }
+
+        .fa-times {
+            font-size: 30px !important;
+            padding: 5px;
+            color: red;
+        }
+    }
+}

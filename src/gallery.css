@@ -1,0 +1,81 @@
+.comp-gallery {
+    margin-top: 65px !important;
+}
+
+.color-grey {
+    background: purple;
+}
+
+.div-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+h3 {
+    color: white;
+}
+
+.modal-header {
+    background: purple;
+    color: white;
+}
+
+.modal-content {
+    background-color: #480248;
+    color: white;
+    border: 7px solid white;
+}
+
+.modal-close {
+    color: white;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+
+    background-size:contain !important;
+    background-position:top !important;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+
+
+.fa-plus-square {
+    font-size: 24px !important;
+    right: 12px;
+    bottom: 12px;
+    position: absolute;
+
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.fa-plus-square:hover {
+    color: green;
+    transform: rotate(90deg)  scale(1.49);
+    
+
+}
+
+.jumbotron {
+    height: 450px !important;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.jumbotron p {
+    color: white;
+}
+
+.box-shadow {
+
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+@media screen and (max-width: 425px)
+{
+    
+}
