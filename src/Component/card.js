@@ -35,7 +35,7 @@ export default class Card extends Component {
 
                     <h6 className="card-title p-2">{this.props.film.title}</h6>
                     {this.props.film['poster_path']=== null ? <img src={window.location.origin + '/no_image.png'}  alt={this.props.film.title}/>: <img className="card-img-top" src={this.state.urlImage + this.props.film['poster_path']} alt={this.props.film.title} />}
-                    <FontAwesomeIcon icon={faArrowsAlt}    
+                    <FontAwesomeIcon icon={faArrowsAlt}     title="Plus de détails" 
                                                             data-toggle="modal" data-target="#myModal" 
                                                             onClick={this.clickCollapseCard} />
                     <FontAwesomeIcon icon={faPlusCircle}  />
