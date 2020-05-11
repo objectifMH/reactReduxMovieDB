@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './card.css';
+import './card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm, faPlusCircle} from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faPlusCircle, faArrowsAlt, faCircle} from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -27,8 +27,6 @@ export default class Card extends Component {
         console.log(this.props.film);
     }
 
-    //data-toggle="collapse" data-target={'#demo'+this.props.film.id}  
-
     render() {
         return (
             <div className="m-2">
@@ -36,11 +34,11 @@ export default class Card extends Component {
                 <div className="card div-card" >
 
                     <h6 className="card-title p-2">{this.props.film.title}</h6>
-                    {this.props.film['poster_path']=== null ? <FontAwesomeIcon icon={faFilm} /> : <img className="card-img-top" src={this.state.urlImage + this.props.film['poster_path']} alt="Card" />}
-                    <FontAwesomeIcon icon={faPlusCircle}    
+                    {this.props.film['poster_path']=== null ? <img src={window.location.origin + '/no_image.png'}  alt={this.props.film.title}/>: <img className="card-img-top" src={this.state.urlImage + this.props.film['poster_path']} alt={this.props.film.title} />}
+                    <FontAwesomeIcon icon={faArrowsAlt}    
                                                             data-toggle="modal" data-target="#myModal" 
                                                             onClick={this.clickCollapseCard} />
-                    
+                    <FontAwesomeIcon icon={faPlusCircle}  />
                     
                     
                 </div>

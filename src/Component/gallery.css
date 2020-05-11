@@ -38,6 +38,10 @@ h3 {
     background-attachment:fixed;
 }
 
+.modal-close:hover {
+    color: red;
+    transform: rotate(90deg)  scale(1.49);
+}
 
 
 .fa-plus-square {
