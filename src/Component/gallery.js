@@ -22,8 +22,8 @@ export default class Gallery extends Component {
             filmCollapse: {},
             idCollapse: '',
             isShow: false,
-            testRechercheIdFilm: 'https://api.themoviedb.org/3/movie/384737/videos?api_key=369db2052a84d1a49d133d25a3983cbd'
-
+            testRechercheIdFilm: 'https://api.themoviedb.org/3/movie/384737/videos?api_key=369db2052a84d1a49d133d25a3983cbd',
+            filmJumbo: null
         }
     }
 
@@ -40,10 +40,14 @@ export default class Gallery extends Component {
     }
 
     componentDidMount() {
+        let random = Math.floor(Math.random(this.state.listFilm.length-1) * 10);
+
         axios.get('https://api.themoviedb.org/3/discover/movie?api_key=369db2052a84d1a49d133d25a3983cbd&language=en-US&sort_by=popularity.desc')
             .then(res => {
                 const persons = res.data.results;
-                this.setState({ listFilm: persons });
+                this.setState({ listFilm: persons,
+                    filmJumbo: persons[random]
+                });
             })
         //console.log(this.state.films);
     }
@@ -82,7 +86,7 @@ export default class Gallery extends Component {
 
     render() {
 
-        const random = Math.floor(Math.random(this.state.listFilm.length-1) * 10);
+        
         console.log(this.state.listFilm[0]);
         return (
             <div className="comp-gallery m-3">
@@ -96,16 +100,16 @@ export default class Gallery extends Component {
                     </div>
                 </div>
                 {
-                    this.state.listFilm[random] != null ? 
+                    this.state.filmJumbo != null ? 
                     <div className="jumbotron" 
                         style={{
-                        backgroundImage: "url(" + this.state.urlImage + this.state.listFilm[random]['backdrop_path'] + ")"}}
+                        backgroundImage: "url(" + this.state.urlImage + this.state.filmJumbo['backdrop_path'] + ")"}}
                     >
                     <div>
                             
-                        <h3><span className="box-shadow">{this.state.listFilm[random].title}</span></h3>
+                        <h3><span className="box-shadow">{this.state.filmJumbo.title}</span></h3>
                         <p>
-                        <span className="box-shadow">{this.state.listFilm[random]['release_date']}</span>
+                        <span className="box-shadow">{this.state.filmJumbo['release_date']}</span>
                         </p>
                     </div>
                     </div> :
@@ -133,7 +137,8 @@ export default class Gallery extends Component {
 
                                 
                                 <div className="modal-body" >
-                                    <img className="card-img-top" src={this.state.urlImage + this.state.filmCollapse['backdrop_path']} alt={this.state.filmCollapse.title} />
+                                    {this.state.filmCollapse['backdrop_path']=== null ? <img className="card-img-top"  src={window.location.origin + '/no_image.png'}  alt={this.state.filmCollapse.title}/>: <img className="card-img-top" src={this.state.urlImage + this.state.filmCollapse['backdrop_path']} alt={this.state.filmCollapse.title} />}
+                    
                                     <hr></hr>
                                     <p className="card-text">{this.state.filmCollapse.overview}</p>
                                     <p className="card-text">{this.state.filmCollapse.release_date}</p>

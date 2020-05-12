@@ -6,6 +6,8 @@
     transition: all .2s ease-in-out;
     cursor: pointer;
 
+
+
     .fa-plus-circle {
         font-size: 20px !important;
         bottom: -10px;
@@ -34,8 +36,9 @@
 }
 
 .div-card:hover {
-    border: 3px solid white;
-    transform: scale(1.05);
+    //border: 3px solid white;
+    transform: scale(1.15);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
     .fa-arrows-alt {
         opacity: 1;
