@@ -36,7 +36,7 @@
 }
 
 .div-card:hover {
-    //border: 3px solid white;
+    border: 3px solid #480248;
     transform: scale(1.15);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
@@ -79,7 +79,6 @@ svg {
     transition: all .2s ease-in-out;
     cursor: pointer;
     color: white;
-    content: " ";
 }
 
 .fa-arrows-alt:hover {
