@@ -27,7 +27,6 @@
 
     .tagline {
         font-size: 22px;
-        color: white;
     }
 
     .vote {
@@ -112,11 +111,54 @@
             border-radius: 10px;
             border: 3px solid white;
             box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+            
+
+            
+        
         }
+
+        
+
+        
     }
 
     .droite {
         flex: 5;
+
+        .fa-plus-circle {
+            font-size: 20px !important;
+            top: 60px;
+            right:15px;
+            position: absolute;
+        
+            transition: all .2s ease-in-out;
+            cursor: pointer;
+            color: hsl(59, 100%, 57%);
+    
+            &:hover {
+            
+                transform: rotate(180deg) scale(1.25);
+                
+            }
+    
+        }
+    
+        .fa-check-circle {
+            font-size: 40px !important;
+            top: 60px;
+            right:15px;
+            position: absolute;
+        
+            transition: all .2s ease-in-out;
+            cursor: pointer;
+            color: green;
+    
+            &:hover {
+            
+                transform: scale(1.25);
+            }
+    
+        }
     }
 
 }

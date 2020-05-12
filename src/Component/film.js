@@ -5,10 +5,11 @@ import axios from 'axios';
 import './film.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleLeft , faPlusCircle , faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
+import { connect } from 'react-redux';
 
-export default class Film extends Component {
+class Film extends Component {
     constructor(props) {
         super(props)
 
@@ -20,14 +21,20 @@ export default class Film extends Component {
             urlCover: "http://api.themoviedb.org/3/search/movie?api_key=369db2052a84d1a49d133d25a3983cbd&query=",
             urlImage: "https://image.tmdb.org/t/p/original/",
             apiKey: "369db2052a84d1a49d133d25a3983cbd",
+            isFavorite: null
 
             //https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>
         }
     }
 
     componentDidMount() {
+        
+        let paramId = this.props.match.params.id; 
+        console.log(paramId);
+        console.log(this.state.films);
+
         this.setState(
-            prevState => ({ filmId: this.props.match.params.id }),
+            prevState => ({ filmId: paramId }),
             () => this.getFilm(this.state.filmId)
         )
 
@@ -42,8 +49,19 @@ export default class Film extends Component {
                 console.log(res.data);
 
                 this.setState(
-                    prevState => ({ film: filmResult }),
-                    () => this.getActeurs()
+                    prevState => ({ film: filmResult , isFavorite: false }),
+                    () => {
+                        this.getActeurs();
+                        console.log(this.state);
+                        this.props.films.map(film => {
+                            if (film.id === this.state.film.id){
+                                this.setState(
+                                    prevState => ({ isFavorite: true })
+                                );
+                            }
+                        }) 
+
+                    }
                 );
             })
     }
@@ -62,7 +80,24 @@ export default class Film extends Component {
                     prevState => ({ acteurs: acteursRes })
                 );
             })
+    }
 
+    clickAjouterFilmFav = (film) => {
+        console.log(film);
+        this.setState(
+            prevState => ({ isFavorite: !this.state.isFavorite }),
+            () => this.props.ajouterFilmFavDispatch(film)
+        );
+        
+    }
+
+    clickSuppFilmFav= (film) => {
+        console.log(film);
+        this.setState(
+            prevState => ({ isFavorite: !this.state.isFavorite }),
+            () => this.props.supprimeFilmFavDispatch(film)
+        );
+        
     }
 
     render() {
@@ -85,24 +120,21 @@ export default class Film extends Component {
                     <div className="container">
 
                         <h1>{this.state.film.title}<span className="date"> ({this.state.film.release_date}) </span>
-                            <br></br>
-                            <span className="tagline">{this.state.film.tagline}</span>
+                            
+                            <p className="tagline">{" "+this.state.film.tagline}</p>
                         </h1>
+
                         <div className="container-gd">
                             <div className="gauche">
                                 <img src={srcPoster}  alt={this.state.film.title}/>
-
+                                
                             </div>
                             <div className="droite">
                                 <div className="sypnosis">
                                     {
-
                                         this.state.film.genres.map((genre, index) =>
                                             <span key={index} className="badge badge-success badge-pill mr-1 genre">{genre.name}
-
-
                                             </span>)
-
                                     }
 
                                     <p>
@@ -111,7 +143,15 @@ export default class Film extends Component {
                                     <p>
                                         {this.state.film.overview}
                                     </p>
-                                    <span class="badge badge-warning badge-pill vote">Vote : {this.state.film.vote_average}</span>
+                                    <span>
+                                    {
+                                        this.state.isFavorite === false ? 
+                                        <FontAwesomeIcon icon={faPlusCircle} onClick={() => this.clickAjouterFilmFav(this.state.film)} /> :
+                                        <FontAwesomeIcon icon={faCheckCircle} onClick={() => this.clickSuppFilmFav(this.state.film)} />
+                                    }
+                                    </span>
+                                    
+                                    <span className="badge badge-warning badge-pill vote">Vote : {this.state.film.vote_average}</span>
                                     
                                     {this.state.acteurs != null ? 
 
@@ -137,3 +177,24 @@ export default class Film extends Component {
         }
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        films: state.films
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        supprimeFilmFavDispatch: film => {
+            dispatch({ type: "SUPP_FILM_FAV", film: film});
+        },
+
+        ajouterFilmFavDispatch: film => {
+            dispatch({ type: "AJ_FILM_FAV", film: film});
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Film)

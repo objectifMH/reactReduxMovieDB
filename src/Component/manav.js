@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
 
-export default class Manav extends Component {
+
+class Manav extends Component {
     render() {
         return (
 
@@ -30,25 +32,15 @@ export default class Manav extends Component {
                                     <Link className="nav-link" to='home' >Home</Link>
                                     <span className="sr-only">(current)</span>
                                 </li>
-                            
-                                
                                 <li className="nav-item mx-2">
-                                    <a className="nav-link" href="#projects">Projects</a>
-                                </li>
-                                <li className="nav-item mx-2">
-                                    <a className="nav-link" href="#pricing">Pricing</a>
-                                </li>
-                                <li className="nav-item mx-2">
-                                    <Link className="nav-link" to='/favoris' >Mes favoris</Link>
+                                    <Link className="nav-link" to='/favoris' >Mes favoris<span className="badge badge-success badge-pill mr-1 nb-fav">{this.props.films.length}</span></Link>
+                                    
                                 </li>
                                 <li className="nav-item mx-2">
                                     <Link className="nav-link" to='/diaporama' >Diaporamas</Link>
                                 </li>		
                                 <li className="nav-item mx-2">
                                     <Link className="nav-link" to='/gallery' >Gallery</Link>
-                                </li>					
-                                <li className="nav-item mx-2">
-                                    <a className="nav-link" href="#contact">Contact</a>
                                 </li>								
                             </ul>
                     
@@ -67,3 +59,11 @@ export default class Manav extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        films: state.films
+    }
+}
+
+export default connect(mapStateToProps)(Manav)
