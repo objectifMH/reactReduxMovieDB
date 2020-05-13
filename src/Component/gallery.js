@@ -87,7 +87,7 @@ export default class Gallery extends Component {
     render() {
 
         
-        console.log(this.state.listFilm[0]);
+        //console.log(this.state.listFilm[0]);
         return (
             <div className="comp-gallery m-3">
 

@@ -23,7 +23,7 @@ class Card extends Component {
 
     componentDidMount() {
         
-        console.log(" film id " , this.props.film.id); 
+        //console.log(" film id " , this.props.film.id); 
         //this.verifFavorite();
         
     }
@@ -69,7 +69,7 @@ class Card extends Component {
         let fav = false;
          for ( let film of this.props.films )
          {
-             console.log(film.id , " " , this.props.film.id)
+             //console.log(film.id , " " , this.props.film.id)
              if (film.id === this.props.film.id)
              {
                  fav = true;

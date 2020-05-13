@@ -1,4 +1,8 @@
 const initState = {
+    films : localStorage.getItem('films') !== null ? JSON.parse(localStorage.getItem('films')) : [],
+}
+
+/* {]
     films: [
         {
             id: 181812,
@@ -34,13 +38,23 @@ const initState = {
          }
 
     ]
+} */
+
+
+
+const setStorageFilm = (state) => {
+    let stateStringify = JSON.stringify(state)
+    localStorage.setItem('films', stateStringify);
 }
 
 const rootReducer = (state =  initState, action) => {
 
+
     if ( action.type === "SUPP_FILM_FAV") {
         console.log(action, "sup film");
         let newTab = state.films.filter( film => film.id !== action.film.id ) 
+        
+        setStorageFilm(newTab);
         return {
             ...state, films: newTab
         }
@@ -48,6 +62,7 @@ const rootReducer = (state =  initState, action) => {
 
     if ( action.type === "AJ_FILM_FAV") {
         console.log(action, "ajout film");
+        setStorageFilm( [...state.films, action.film]);
         return {
             ...state, films: [...state.films, action.film]
         }
