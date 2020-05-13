@@ -162,3 +162,12 @@
     }
 
 }
+
+@media (max-width: 768px) {
+
+    .container-gd {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+}

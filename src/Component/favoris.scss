@@ -39,8 +39,23 @@
             }
         }
 
+    }  
+}
+
+@media (max-width: 768px) {
+
+    .fa-trash {
+        top: 45px !important;
+        right: 10vw !important;
     }
 
     
-    
+    .fa-trash:hover {
+        font-size: 26px;
+
+        transform: scale(1.15);
+        box-shadow: 7px 6px 5px 0px rgba(0,0,0,0.75);
+
+    }
+
 }
