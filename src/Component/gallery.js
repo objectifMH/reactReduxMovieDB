@@ -121,10 +121,6 @@ export default class Gallery extends Component {
                 {
                     
                     <div>
-
-                    
-                    
-
                     <div className="modal fade" id="myModal">
                         <div className="modal-dialog modal-dialog-centered">
                             <div className="modal-content">
@@ -134,8 +130,6 @@ export default class Gallery extends Component {
                                     <h4 className="modal-title">{this.state.filmCollapse.title}</h4>
                                     <button type="button" className="close modal-close" data-dismiss="modal" title="fermer la modal">&times;</button>
                                 </div>
-
-                                
                                 <div className="modal-body" >
                                     {this.state.filmCollapse['backdrop_path']=== null ? <img className="card-img-top"  src={window.location.origin + '/no_image.png'}  alt={this.state.filmCollapse.title}/>: <img className="card-img-top" src={this.state.urlImage + this.state.filmCollapse['backdrop_path']} alt={this.state.filmCollapse.title} />}
                     

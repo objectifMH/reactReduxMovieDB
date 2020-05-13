@@ -26,7 +26,15 @@ export default class FilmFav extends Component {
         return (
             <div className=" container my-container-film">
                 <div className="gauche">
-                    <img  src={this.state.film.cover + this.props.film['poster_path']} alt={"Cover "+this.props.film.title}></img>
+
+                    {
+                        this.props.film['poster_path'] !== null ? 
+                        <img  src={this.state.film.cover + this.props.film['poster_path']} alt={"Cover "+this.props.film.title}></img>
+                                                                :
+                        <img  src={window.location.origin + '/no_image.png'}  alt={this.props.film.title}/>                                         
+                                                                
+                    }
+                    
                 </div>
                 <div className="centre">
                 <Link className="nav-link link-people" to={'/film/' + this.props.film.id}  ><h4>{this.props.film.title}</h4></Link>

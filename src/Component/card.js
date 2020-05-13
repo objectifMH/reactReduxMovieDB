@@ -24,13 +24,18 @@ class Card extends Component {
     componentDidMount() {
         
         console.log(" film id " , this.props.film.id); 
+        //this.verifFavorite();
+        
+    }
+
+    verifFavorite() {
         this.props.films.map(film => {
-                if (film.id === this.props.film.id){
-                    this.setState(
-                        prevState => ({ isFavorite: true })
-                    );
-                }
-            }) 
+            if (film.id === this.props.film.id){
+                this.setState(
+                    prevState => ({ isFavorite: true })
+                );
+            }
+        }) 
     }
 
     clickCollapseCard = () => {
@@ -39,25 +44,38 @@ class Card extends Component {
         console.log(this.props.film);
     }
 
-    clickAjouterFilmFav = (film) => {
-        console.log(film);
+    clickAjouterFilmFav = () => {
+        console.log(this.props.film);
         this.setState(
             prevState => ({ isFavorite: !this.state.isFavorite }),
-            () => this.props.ajouterFilmFavDispatch(film)
+            () => this.props.ajouterFilmFavDispatch(this.props.film) ,
+            //this.verifFavorite()
         );
         
     }
 
-    clickSuppFilmFav= (film) => {
-        console.log(film);
+    clickSuppFilmFav= () => {
+        console.log(this.props.film);
         this.setState(
             prevState => ({ isFavorite: !this.state.isFavorite }),
-            () => this.props.supprimeFilmFavDispatch(film)
+            () => this.props.supprimeFilmFavDispatch(this.props.film) , 
+            //this.verifFavorite()
         );
         
     }
 
     render() {
+
+        let fav = false;
+         for ( let film of this.props.films )
+         {
+             console.log(film.id , " " , this.props.film.id)
+             if (film.id === this.props.film.id)
+             {
+                 fav = true;
+             }
+         }
+        
         return (
             <div className="m-2">
 
@@ -70,9 +88,9 @@ class Card extends Component {
                                                             onClick={this.clickCollapseCard} />
 
                     {
-                        this.state.isFavorite === false ? 
-                        <FontAwesomeIcon icon={faPlusCircle} onClick={() => this.clickAjouterFilmFav(this.props.film)} /> :
-                        <FontAwesomeIcon icon={faCheckCircle} onClick={() => this.clickSuppFilmFav(this.props.film)} />
+                        fav === false ? 
+                        <FontAwesomeIcon icon={faPlusCircle} onClick={this.clickAjouterFilmFav} /> :
+                        <FontAwesomeIcon icon={faCheckCircle} onClick={this.clickSuppFilmFav} />
                     }
                     
                     
