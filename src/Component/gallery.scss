@@ -79,6 +79,37 @@ h3 {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
+.input-group {
+    width: 60%;
+    margin: auto;
+    
+    input {
+        background: #480248;
+        color: white;
+        border: 1px solid white;
+
+        &::placeholder {
+            color: #d3d3d3; 
+        }
+    }
+
+    button {
+        background: #480248;
+        border: 1px solid white;
+        box-sizing: border-box;
+        color: white;
+
+        &:hover {
+            background: purple !important;
+            color: white;
+        }
+    }
+}
+
+h3 {
+    margin: 50px 5px 20px;
+}
+
 @media screen and (max-width: 425px)
 {
     

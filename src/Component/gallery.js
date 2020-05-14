@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './gallery.css';
+import './gallery.scss';
 import Card from './card.js';
 import axios from '../../node_modules/axios';
 
@@ -19,6 +19,7 @@ export default class Gallery extends Component {
             urlImage: "https://image.tmdb.org/t/p/original/",
             inputSearch: '',
             listFilm: [],
+            listSerie: [],
             filmCollapse: {},
             idCollapse: '',
             isShow: false,
@@ -42,12 +43,16 @@ export default class Gallery extends Component {
     componentDidMount() {
         let random = Math.floor(Math.random(this.state.listFilm.length-1) * 10);
 
-        axios.get('https://api.themoviedb.org/3/discover/movie?api_key=369db2052a84d1a49d133d25a3983cbd&language=en-US&sort_by=popularity.desc')
+         let urlDiscover = 'https://api.themoviedb.org/3/discover/movie?api_key=369db2052a84d1a49d133d25a3983cbd&language=en-US&sort_by=popularity.desc';
+
+        axios.get(urlDiscover)
             .then(res => {
                 const persons = res.data.results;
-                this.setState({ listFilm: persons,
-                    filmJumbo: persons[random]
-                });
+                this.setState(
+                    prevState => ({ listFilm: persons,
+                                    filmJumbo: persons[random] }),
+                                    () => this.getSerie()
+                );
             })
         //console.log(this.state.films);
     }
@@ -60,6 +65,19 @@ export default class Gallery extends Component {
                 this.setState({ listFilm: films });
             })
         console.log(this.state.listFilm)
+    }
+
+    getSerie() {
+        let testSerie = 'https://api.themoviedb.org/3/discover/tv?api_key=369db2052a84d1a49d133d25a3983cbd&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false';
+       
+        axios.get(testSerie)
+            .then(res => {
+                const listSerie = res.data.results;
+                this.setState(
+                    prevState => ({ listSerie })
+                                    
+                );
+            })
     }
 
     showCollapse = (film) => {
@@ -96,10 +114,11 @@ export default class Gallery extends Component {
                     <input type="text" className="form-control" placeholder="ex: Jack Reacher" value={this.state.inputSearch}
                         onChange={this.changeInput} />
                     <div className="input-group-append">
-                        <button className="btn btn-success" type="submit" onClick={this.clickSearch}>Rechercher</button>
+                        <button className="btn" type="submit" onClick={this.clickSearch}>Rechercher</button>
                     </div>
                 </div>
-                {
+                { 
+                /** 
                     this.state.filmJumbo != null ? 
                     <div className="jumbotron" 
                         style={{
@@ -114,6 +133,7 @@ export default class Gallery extends Component {
                     </div>
                     </div> :
                     ''
+                */
                 }
                 
 
@@ -127,7 +147,11 @@ export default class Gallery extends Component {
 
                                 
                                 <div className="modal-header">
-                                    <h4 className="modal-title">{this.state.filmCollapse.title}</h4>
+                                    <h4 className="modal-title">{
+                                    this.state.filmCollapse.title ? 
+                                    this.state.filmCollapse.title : 
+                                    this.state.filmCollapse.name
+                                    }</h4>
                                     <button type="button" className="close modal-close" data-dismiss="modal" title="fermer la modal">&times;</button>
                                 </div>
                                 <div className="modal-body" >
@@ -138,7 +162,12 @@ export default class Gallery extends Component {
                                     <p className="card-text">{this.state.filmCollapse.release_date}</p>
                                 </div>
 
-                            <Link className="nav-link close" to={'/film/'+this.state.filmCollapse.id} >
+                            <Link className="nav-link close" to={
+                                
+                                this.state.filmCollapse.title ? 
+                                '/film/'+this.state.filmCollapse.id+'/movie' : 
+                                '/film/'+this.state.filmCollapse.id+'/tv'
+                                } >
                                 <FontAwesomeIcon icon={faPlusSquare} data-toggle="modal" data-target="#myModal" alt={'En savoir plus sur '+this.state.filmCollapse.title}/>
                             </Link>
 
@@ -151,17 +180,41 @@ export default class Gallery extends Component {
                 }
                 <div className="container-fluid color-grey div-cont ">
                     {
-                        this.state.listFilm.map((film, index) =>
-                            <div key={index}>
-                                <Card key={index} film={film} clickCollapse={this.showCollapse}></Card>
+                        this.state.listFilm.map((film, index) => (
+                            index <= 13 ? 
+                                <div key={index}>
+                                    <Card key={index} film={film} tv={false} clickCollapse={this.showCollapse}></Card>
 
 
-                            </div>
+                                </div> : ""
+                            )
                         )
                     }
 
 
                 </div>
+
+
+                { /** Les Meilleurs séries  */}
+
+                <h3>Les Séries les + populaires</h3>
+                <div className="container-fluid color-grey div-cont ">
+                    {
+                        this.state.listSerie.map((serie, index) => (
+                            index <= 13 ? 
+                                <div key={index}>
+                                    <Card key={index} film={serie} tv={true} clickCollapse={this.showCollapse}></Card>
+
+
+                                </div> : ""
+                            )
+                        )
+                    }
+
+
+                </div>
+
+
             </div>
         )
     }

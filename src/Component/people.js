@@ -16,6 +16,7 @@ constructor(props) {
             urlImage: "https://image.tmdb.org/t/p/original",
             apiKey: "369db2052a84d1a49d133d25a3983cbd",
             films: null,
+            series: null,
             isCollapse: false
 
         }
@@ -24,7 +25,7 @@ constructor(props) {
     componentDidMount() {
         this.setState(
             prevState => ({ acteurId: this.props.match.params.id }),
-            () => this.getActeur(this.state.acteur)
+                () => this.getActeur(this.state.acteur)
             )
     }
 
@@ -32,6 +33,8 @@ constructor(props) {
         //https://api.themoviedb.org/3/person/{person_id}?api_key=<<api_key>>&language=en-US
 
         //https://api.themoviedb.org/3/person/153/api_key=369db2052a84d1a49d133d25a3983cbd
+
+        //https://api.themoviedb.org/3/person/{person_id}/tv_credits?api_key=<<api_key>>&language=en-US
 
         let url = "".concat(this.state.urlQuery, this.state.acteurId, "?api_key=", this.state.apiKey);
         axios.get(url)
@@ -41,7 +44,22 @@ constructor(props) {
 
                 this.setState(
                     prevState => ({ acteur: acteurRes }),
-                    () => this.getFilms()
+                    () => this.getFilms() 
+                );
+        })
+    }
+
+
+    getSeries() {
+
+        console.log("cherche series tv");
+        let url = "".concat(this.state.urlQuery, this.state.acteurId, "/tv_credits?api_key=", this.state.apiKey);
+        axios.get(url)
+            .then(res => {
+                const series = res.data;
+                this.setState(
+                    prevState => ({ series }),
+                    () => console.log(this.state.series.cast) 
                 );
         })
     }
@@ -52,11 +70,12 @@ constructor(props) {
         let url = "".concat(this.state.urlQuery, this.state.acteurId, "/movie_credits?api_key=", this.state.apiKey);
         axios.get(url)
             .then(res => {
-                const filmRes = res.data.cast;
+                const films = res.data.cast;
 
                 this.setState(
-                    prevState => ({ films: filmRes })
-                );
+                    prevState => ({ films: films }
+                ),
+                () => this.getSeries());
         })
     }
 
@@ -123,13 +142,34 @@ constructor(props) {
                         {
                             this.state.films != null ? 
                             this.state.films.map( (film, index) => 
-                            <Link className="nav-link link-people" to={'/film/' + film.id}  key={index}><span className="btn btn-film" >{film.title}</span></Link>
+                            <Link className="nav-link link-people" to={'/film/' + film.id+'/movie'}  key={index}><span className="btn btn-film" >{film.title}</span></Link>
                             )
                             :''
                         }
                         </div>
 
                     :<div className="spinner-border text-dark"></div>
+                    
+                }
+
+                <h3 className="m-2">Series: </h3>
+                {
+                    this.state.series != null  
+                    ?  
+                    <div className="row">
+                        <br></br>
+                        {
+                            this.state.series != null ? 
+                            this.state.series.cast.map( (serie, index) => 
+                            <Link className="nav-link link-people" to={'/film/' + serie.id+'/tv'}  key={index}><span className="btn btn-film" >{serie.name}</span></Link>
+                            )
+                            :''
+                        }
+                        </div>
+
+                    :<div className="spinner-border text-dark"></div>
+
+                    
                     
                 }
                 

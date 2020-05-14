@@ -22,7 +22,9 @@ export default class FilmFav extends Component {
     
     render() {
 
+        const type = this.props.film.first_air_date !== undefined  ? "tv" : "movie";
         console.log(this.props.film)
+
         return (
             <div className=" container my-container-film">
                 <div className="gauche">
@@ -32,14 +34,21 @@ export default class FilmFav extends Component {
                         <img  src={this.state.film.cover + this.props.film['poster_path']} alt={"Cover "+this.props.film.title}></img>
                                                                 :
                         <img  src={window.location.origin + '/no_image.png'}  alt={this.props.film.title}/>                                         
-                                                                
                     }
-                    
                 </div>
                 <div className="centre">
-                <Link className="nav-link link-people" to={'/film/' + this.props.film.id}  ><h4>{this.props.film.title}</h4></Link>
-                    
-                    <p>{this.props.film.release_date}</p>
+                <Link className="nav-link link-people" to={'/film/' + this.props.film.id+'/'+type}  >
+                    <h4>
+                        {
+                            type === "tv" ? this.props.film.original_name : this.props.film.title
+                        }
+                    </h4>
+                </Link>
+                    <p>
+                        {                  
+                            type === "tv" ?  (this.props.film.first_air_date) : this.props.film.release_date
+                        }
+                    </p>
                 </div>
                 <div className="droite">
                     {

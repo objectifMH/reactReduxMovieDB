@@ -29,27 +29,17 @@ class Manav extends Component {
                     
                             <ul className="navbar-nav mx-auto mr-auto">
                                 <li className="nav-item active mx-2">
-                                    <Link className="nav-link" to='home' >Home</Link>
+                                    <Link className="nav-link" to='/home' >Home</Link>
                                     <span className="sr-only">(current)</span>
                                 </li>
                                 <li className="nav-item mx-2">
                                     <Link className="nav-link" to='/favoris' >Mes favoris<span className="badge badge-success badge-pill mr-1 nb-fav">{this.props.films.length}</span></Link>
                                     
-                                </li>
-                                <li className="nav-item mx-2">
-                                    <Link className="nav-link" to='/diaporama' >Diaporamas</Link>
-                                </li>		
+                                </li>	
                                 <li className="nav-item mx-2">
                                     <Link className="nav-link" to='/gallery' >Gallery</Link>
                                 </li>								
                             </ul>
-                    
-                            <form className="form-inline text-white">
-                                <div className="md-form my-0">
-                                    <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
-                                    <i className="fa fa-search pr-3"></i>
-                                </div>
-                            </form>
                         </div>
                     
                     </div>

@@ -11,6 +11,7 @@ import Gallery from './Component/gallery';
 import Film from './Component/film';
 import People from './Component/people';
 import Favoris from './Component/favoris';
+import Home from './Component/home';
 
 
 function App() {
@@ -20,10 +21,10 @@ function App() {
         <Router>
           <Manav></Manav>
           <Switch>
-            <Route path="/home" ></Route>
+            <Route path="/home" component={Home}></Route>
             <Route path="/gallery" component={Gallery}></Route>
             <Route path="/diaporama" component={Diaporama}></Route>
-            <Route path="/film/:id" component={Film}></Route>
+            <Route path="/film/:id/:type" component={Film}></Route>
             <Route path="/people/:id" component={People}></Route>
             <Route path="/favoris" component={Favoris}></Route>
 

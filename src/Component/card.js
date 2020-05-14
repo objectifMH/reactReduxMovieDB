@@ -18,7 +18,7 @@ class Card extends Component {
             isFavorite: false
         }
 
-        //console.log(this.props, this.props.film['poster_path']);
+        console.log(this.props, this.props.film['poster_path']);
     }
 
     componentDidMount() {
@@ -81,7 +81,17 @@ class Card extends Component {
 
                 <div className="card div-card" >
 
-                    <h6 className="card-title p-2">{this.props.film.title}</h6>
+                    <h6 className="card-title p-2">
+                        
+                        {
+                                this.props.tv === true 
+                                ? 
+                                this.props.film.name
+                                :
+                                this.props.film.title
+                            }
+                    
+                    </h6>
                     {this.props.film['poster_path']=== null ? <img className="card-img-top"  src={window.location.origin + '/no_image.png'}  alt={this.props.film.title}/>: <img className="card-img-top" src={this.state.urlImage + this.props.film['poster_path']} alt={this.props.film.title} />}
                     <FontAwesomeIcon icon={faExpand}     title="Plus de détails" 
                                                             data-toggle="modal" data-target="#myModal" 

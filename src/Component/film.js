@@ -17,32 +17,35 @@ class Film extends Component {
             film: null,
             filmId: '',
             acteurs: null,
-            urlQuery: "https://api.themoviedb.org/3/movie/",
+            urlQuery: "https://api.themoviedb.org/3/",
             urlCover: "http://api.themoviedb.org/3/search/movie?api_key=369db2052a84d1a49d133d25a3983cbd&query=",
             urlImage: "https://image.tmdb.org/t/p/original/",
             apiKey: "369db2052a84d1a49d133d25a3983cbd",
-            isFavorite: null
+            isFavorite: null,
+            type: null
 
             //https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>
         }
+        console.log(this.props);
     }
 
     componentDidMount() {
         
         let paramId = this.props.match.params.id; 
+        let type = this.props.match.params.type;
         console.log(paramId);
         console.log(this.state.films);
 
         this.setState(
-            prevState => ({ filmId: paramId }),
+            prevState => ({ filmId: paramId,
+            type: type }),
             () => this.getFilm(this.state.filmId)
         )
 
     }
 
     getFilm() {
-
-        let url = "".concat(this.state.urlQuery, this.state.filmId, "?api_key=", this.state.apiKey);
+        let url = "".concat(this.state.urlQuery, this.state.type, '/', this.state.filmId, "?api_key=", this.state.apiKey);
         axios.get(url)
             .then(res => {
                 const filmResult = res.data;
@@ -52,13 +55,14 @@ class Film extends Component {
                     prevState => ({ film: filmResult , isFavorite: false }),
                     () => {
                         this.getActeurs();
-                        console.log(this.state);
+                        // eslint-disable-next-line array-callback-return
                         this.props.films.map(film => {
-                            if (film.id === this.state.film.id){
-                                this.setState(
-                                    prevState => ({ isFavorite: true })
-                                );
-                            }
+                            if (film.id === this.state.film.id)
+                                {
+                                    this.setState(
+                                        prevState => ({ isFavorite: true })
+                                    );
+                                 }
                         }) 
 
                     }
@@ -70,7 +74,7 @@ class Film extends Component {
 
         //https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>
 
-        let url = "".concat(this.state.urlQuery, this.state.filmId, "/credits?api_key=", this.state.apiKey);
+        let url = "".concat(this.state.urlQuery, this.state.type, '/', this.state.filmId, "/credits?api_key=", this.state.apiKey);
         axios.get(url)
             .then(res => {
                 const acteursRes = res.data;
@@ -81,6 +85,8 @@ class Film extends Component {
                 );
             })
     }
+
+    
 
     clickAjouterFilmFav = (film) => {
         console.log(film);
@@ -101,6 +107,8 @@ class Film extends Component {
     }
 
     render() {
+
+        console.log(this.props.film)
         let srcBack =   this.state.film ? ( this.state.film['backdrop_path'] ? this.state.urlImage + this.state.film['backdrop_path'] : window.location.origin + '')
                                     : window.location.origin + ''
                 ;
@@ -119,9 +127,30 @@ class Film extends Component {
                     </Link>
                     <div className="container">
 
-                        <h1>{this.state.film.title}<span className="date"> ({this.state.film.release_date}) </span>
+                        <h1>
+                            {
+                                this.state.type === 'movie' ? 
+                                this.state.film.title
+                                :
+                                this.state.film.name 
+                            }
+                        <span className="date"> ({
+                            this.state.type === 'movie' 
+                            ? 
+                            this.state.film.release_date
+                            :
+                            this.state.film.first_air_date + ' / ' + this.state.film.last_air_date
+                        }) 
+                        </span>
                             
-                            <p className="tagline">{" "+this.state.film.tagline}</p>
+                            <p className="tagline">{
+                                this.state.type === 'movie' 
+                                ? 
+                                this.state.film.tagline
+                                :
+                                this.state.film.original_name
+                            
+                            }</p>
                         </h1>
 
                         <div className="container-gd">
