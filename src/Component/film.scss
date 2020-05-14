@@ -165,9 +165,24 @@
 
 @media (max-width: 768px) {
 
+    .header-container {
+        height: 100vh;
+        }
+
     .container-gd {
         display: flex;
         flex-direction: column !important;
+    }
+
+    .vote {
+        position: relative !important;
+        margin : 15px !important; 
+    }
+
+    .fa-check-circle {
+        position: relative!important;
+        margin : 2px 15px 34px 24px !important; 
+        left: 0;
     }
 
 }

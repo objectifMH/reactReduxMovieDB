@@ -60,9 +60,13 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 473px) {
 
-   
+    .my-container-film {
+
+        //background: yellow;
+        width: 300px;
+    }
    
 
 }
