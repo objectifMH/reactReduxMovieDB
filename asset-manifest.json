@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/reactReduxMovieDB/static/css/main.6fe4068c.chunk.css",
+    "main.js": "/reactReduxMovieDB/static/js/main.f43232a1.chunk.js",
+    "main.js.map": "/reactReduxMovieDB/static/js/main.f43232a1.chunk.js.map",
+    "runtime-main.js": "/reactReduxMovieDB/static/js/runtime-main.294af6e1.js",
+    "runtime-main.js.map": "/reactReduxMovieDB/static/js/runtime-main.294af6e1.js.map",
+    "static/css/2.69121389.chunk.css": "/reactReduxMovieDB/static/css/2.69121389.chunk.css",
+    "static/js/2.dded3048.chunk.js": "/reactReduxMovieDB/static/js/2.dded3048.chunk.js",
+    "static/js/2.dded3048.chunk.js.map": "/reactReduxMovieDB/static/js/2.dded3048.chunk.js.map",
+    "index.html": "/reactReduxMovieDB/index.html",
+    "precache-manifest.bafe495c19b4afbc3d833e67a7dd4ba6.js": "/reactReduxMovieDB/precache-manifest.bafe495c19b4afbc3d833e67a7dd4ba6.js",
+    "service-worker.js": "/reactReduxMovieDB/service-worker.js",
+    "static/css/2.69121389.chunk.css.map": "/reactReduxMovieDB/static/css/2.69121389.chunk.css.map",
+    "static/css/main.6fe4068c.chunk.css.map": "/reactReduxMovieDB/static/css/main.6fe4068c.chunk.css.map",
+    "static/js/2.dded3048.chunk.js.LICENSE.txt": "/reactReduxMovieDB/static/js/2.dded3048.chunk.js.LICENSE.txt",
+    "static/media/diaporama.css": "/reactReduxMovieDB/static/media/int.d1162ac5.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.294af6e1.js",
+    "static/css/2.69121389.chunk.css",
+    "static/js/2.dded3048.chunk.js",
+    "static/css/main.6fe4068c.chunk.css",
+    "static/js/main.f43232a1.chunk.js"
+  ]
+}
