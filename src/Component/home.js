@@ -39,7 +39,7 @@ export default class Home extends Component {
                 
                 <div id="demo" className="carousel slide" data-ride="carousel">
                 <ul className="carousel-indicators">
-                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="0" className="active"></li>
                     <li data-target="#demo" data-slide-to="1"></li>
                     <li data-target="#demo" data-slide-to="2"></li>
                 </ul>

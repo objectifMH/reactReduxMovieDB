@@ -18,7 +18,7 @@ class Card extends Component {
             isFavorite: false
         }
 
-        console.log(this.props, this.props.film['poster_path']);
+        //console.log(this.props, this.props.film['poster_path']);
     }
 
     componentDidMount() {

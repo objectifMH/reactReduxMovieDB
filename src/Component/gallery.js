@@ -13,10 +13,11 @@ export default class Gallery extends Component {
         super(props)
 
         this.state = {
-            api_key: '369db2052a84d1a49d133d25a3983cbd',
+            api_key: '?api_key=369db2052a84d1a49d133d25a3983cbd',
             url: 'https://api.themoviedb.or550g/3/movie/?api_key=369db2052a84d1a49d133d25a3983cbd',
             urlSearch: 'https://api.themoviedb.org/3/search/movie?api_key=369db2052a84d1a49d133d25a3983cbd&query=',
             urlImage: "https://image.tmdb.org/t/p/original/",
+            urlBase: 'https://api.themoviedb.org/3/',
             inputSearch: '',
             listFilm: [],
             listSerie: [],
@@ -37,6 +38,7 @@ export default class Gallery extends Component {
 
     clickSearch = (event) => {
         this.getFilms(this.state.inputSearch);
+        this.getSerie(this.state.inputSearch);
 
     }
 
@@ -67,14 +69,19 @@ export default class Gallery extends Component {
         console.log(this.state.listFilm)
     }
 
-    getSerie() {
+    getSerie(inputSearch) {
+        console.log(inputSearch);
         let testSerie = 'https://api.themoviedb.org/3/discover/tv?api_key=369db2052a84d1a49d133d25a3983cbd&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false';
-       
-        axios.get(testSerie)
+        let suffixe = inputSearch !== undefined ? 'search/tv'+this.state.api_key+'&query='
+                                        : 'discover/tv?api_key=369db2052a84d1a49d133d25a3983cbd&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false';
+        console.log(inputSearch, this.state.urlBase.concat(suffixe, inputSearch));
+        axios.get(this.state.urlBase.concat(suffixe)+inputSearch)
             .then(res => {
                 const listSerie = res.data.results;
+                console.log(res.data.results)
                 this.setState(
-                    prevState => ({ listSerie })
+                    prevState => ({ listSerie }),
+                    () => console.log(listSerie)
                                     
                 );
             })
@@ -181,7 +188,7 @@ export default class Gallery extends Component {
                 <div className="container-fluid color-grey div-cont ">
                     {
                         this.state.listFilm.map((film, index) => (
-                            index <= 13 ? 
+                                index <=  (this.state.inputSearch === '' ? 13 : this.state.listFilm.length)  ? 
                                 <div key={index}>
                                     <Card key={index} film={film} tv={false} clickCollapse={this.showCollapse}></Card>
 
@@ -201,7 +208,7 @@ export default class Gallery extends Component {
                 <div className="container-fluid color-grey div-cont ">
                     {
                         this.state.listSerie.map((serie, index) => (
-                            index <= 13 ? 
+                            index <=  (this.state.inputSearch === '' ? 13 : this.state.listSerie.length)  ? 
                                 <div key={index}>
                                     <Card key={index} film={serie} tv={true} clickCollapse={this.showCollapse}></Card>
 
