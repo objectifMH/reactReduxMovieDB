@@ -134,7 +134,7 @@ constructor(props) {
                 </div>
                 </div>
 
-                <h3 className="m-2">Films: </h3>
+                <h3 className="m-2">Films </h3>
                 {
                     this.state.films != null ? 
                         <div className="row">
@@ -152,7 +152,7 @@ constructor(props) {
                     
                 }
 
-                <h3 className="m-2">Series: </h3>
+                {( this.state.series != null && this.state.series.cast.length > 0) &&  <h3 className="m-2">Series </h3>}
                 {
                     this.state.series != null  
                     ?  
@@ -161,7 +161,7 @@ constructor(props) {
                         {
                             this.state.series != null ? 
                             this.state.series.cast.map( (serie, index) => 
-                            <Link className="nav-link link-people" to={'/film/' + serie.id+'/tv'}  key={index}><span className="btn btn-film" >{serie.name}</span></Link>
+                            <Link className="nav-link link-people" to={'/film/' + serie.id+'/tv'}  key={index}><span className="btn btn-serie" >{serie.name}</span></Link>
                             )
                             :''
                         }
@@ -179,7 +179,7 @@ constructor(props) {
         )
         else {
             return (
-                <span>Loading ... acteur </span>
+                <span>Loading ... acteurs </span>
             )
         }
     }
