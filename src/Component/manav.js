@@ -29,7 +29,7 @@ class Manav extends Component {
                     
                             <ul className="navbar-nav mx-auto mr-auto">
                                 <li className="nav-item active mx-2">
-                                    <Link className="nav-link" to='/home' >Home</Link>
+                                    <Link className="nav-link" to='/home' >New Home</Link>
                                     <span className="sr-only">(current)</span>
                                 </li>
                                 <li className="nav-item mx-2">
