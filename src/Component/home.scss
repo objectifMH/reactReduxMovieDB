@@ -6,6 +6,11 @@
     }
 }
 
+img {
+    width: 100vw;
+    padding: 10px 150px;
+}
+
 .carousel {
     margin-top: 50px;
 
@@ -19,4 +24,15 @@
     }
 
 
+
+
+}
+
+a {
+    color: white;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.22);
+    }
 }
