@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './card.scss';
+//import './card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faPlusCircle, faExpand, faCheckCircle} from '@fortawesome/free-solid-svg-icons';
 
