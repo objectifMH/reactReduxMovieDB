@@ -162,7 +162,7 @@ export default class Gallery extends Component {
                                     <button type="button" className="close modal-close" data-dismiss="modal" title="fermer la modal">&times;</button>
                                 </div>
                                 <div className="modal-body" >
-                                    {this.state.filmCollapse['backdrop_path']=== null ? <img className="card-img-top"  src={window.location.origin + '/no_image.png'}  alt={this.state.filmCollapse.title}/>: <img className="card-img-top" src={this.state.urlImage + this.state.filmCollapse['backdrop_path']} alt={this.state.filmCollapse.title} />}
+                                    {this.state.filmCollapse['backdrop_path']=== null ? <img className="card-img-top"  src={process.env.PUBLIC_URL +'/no_image.png'}  alt={this.state.filmCollapse.title}/>: <img className="card-img-top" src={this.state.urlImage + this.state.filmCollapse['backdrop_path']} alt={this.state.filmCollapse.title} />}
                     
                                     <hr></hr>
                                     <p className="card-text">{this.state.filmCollapse.overview}</p>

@@ -5,12 +5,12 @@ import {Route, Switch, BrowserRouter as Router} from '../node_modules/react-rout
 
 
 
-import Manav from './manav';
-import Gallery from './gallery';
-import Film from './film';
-import People from './people';
-import Favoris from './favoris';
-import Home from './home';
+import Manav from './Component/manav';
+import Gallery from './Component/gallery';
+import Film from './Component/film';
+import People from './Component/people';
+import Favoris from './Component/favoris';
+import Home from './Component/home';
 
 
 function App() {

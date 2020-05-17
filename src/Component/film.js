@@ -112,8 +112,8 @@ class Film extends Component {
         let srcBack =   this.state.film ? ( this.state.film['backdrop_path'] ? this.state.urlImage + this.state.film['backdrop_path'] : window.location.origin + '')
                                     : window.location.origin + ''
                 ;
-        let srcPoster =   this.state.film ? ( this.state.film['poster_path'] ? this.state.urlImage + this.state.film['poster_path'] : window.location.origin + '/no_image.png')
-                                    : window.location.origin + '/no_image.png'
+        let srcPoster =   this.state.film ? ( this.state.film['poster_path'] ? this.state.urlImage + this.state.film['poster_path'] : process.env.PUBLIC_URL +'/no_image.png')
+                                    : process.env.PUBLIC_URL +'/no_image.png'
                 ;
 
         if (this.state.film != null)
