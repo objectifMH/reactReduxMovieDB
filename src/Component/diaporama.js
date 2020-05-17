@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './diaporama.css';
+import 'diaporama.css';
 
 export default class Diaporama extends Component {
     render() {

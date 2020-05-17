@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 
-import './film.scss';
+import 'film.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleLeft , faPlusCircle , faCheckCircle } from '@fortawesome/free-solid-svg-icons';

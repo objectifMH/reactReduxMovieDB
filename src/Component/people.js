@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
-import './people.scss';
+import 'people.scss';
 
 import { Link } from 'react-router-dom';
 

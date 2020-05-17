@@ -1,0 +1,108 @@
+.div-card {
+    width: 12vw;
+    background: #480248;
+    color: white;
+
+    transition: all .2s ease-in-out;
+    //cursor: pointer;
+
+
+
+    .fa-plus-circle {
+        font-size: 20px !important;
+        bottom: -10px;
+        left: 0;
+        position: absolute;
+    
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        color: hsl(59, 100%, 57%);
+
+        &:hover {
+        
+            transform: rotate(180deg) scale(1.25);
+            
+        }
+
+    }
+
+    .fa-check-circle {
+        font-size: 26px !important;
+        bottom: -10px;
+        left: 0;
+        position: absolute;
+    
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        color: green;
+
+        &:hover {
+        
+            transform: scale(1.25);
+        }
+
+    }
+
+}
+
+.div-card:hover {
+    border: 3px solid #480248;
+    transform: scale(1.15);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    z-index: 5;
+
+    .fa-expand {
+        
+        color: white;
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+            color: white;
+            transform: rotate(180deg)  scale(1.59);
+        }
+    }
+    
+}
+
+.div-collapse {
+    border: 2px solid white;
+    background: lightgrey;
+    z-index: 2;
+}
+
+
+body {
+    background: purple;
+}
+
+svg {
+    color: white;
+    font-size: 9em !important;
+    margin: auto;
+}
+
+.fa-expand {
+    opacity: 0;
+    font-size: 24px !important;
+        right: 10px;
+        top: 10px;
+        position: absolute;
+
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+
+   
+
+    .div-card {
+        width: 30vw;
+    }
+
+}

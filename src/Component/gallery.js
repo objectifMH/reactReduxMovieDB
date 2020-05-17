@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './gallery.scss';
+import 'gallery.scss';
 import Card from './card.js';
 import axios from '../../node_modules/axios';
 
