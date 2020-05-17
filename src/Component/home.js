@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './home.scss';
+//import './home.scss';
 import axios from 'axios';
 import Gallery from './gallery';
 import { Link } from 'react-router-dom';
