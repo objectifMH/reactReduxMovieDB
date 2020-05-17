@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import 'gallery.scss';
+import './gallery.scss';
 import Card from './card.js';
-import axios from '../../node_modules/axios';
+import axios from 'axios';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare} from '@fortawesome/free-solid-svg-icons';
-import { Link } from '../../node_modules/react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class Gallery extends Component {
 

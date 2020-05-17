@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FilmFav from './filmFav';
 import { connect } from 'react-redux';
-import 'favoris.scss';
+import './favoris.scss';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

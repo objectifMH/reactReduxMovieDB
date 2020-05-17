@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import 'filmFav.scss';
+import './filmFav.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faCheckCircle} from '@fortawesome/free-solid-svg-icons';
