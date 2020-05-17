@@ -33,7 +33,7 @@ export default class FilmFav extends Component {
                         this.props.film['poster_path'] !== null ? 
                         <img  src={this.state.film.cover + this.props.film['poster_path']} alt={"Cover "+this.props.film.title}></img>
                                                                 :
-                        <img  src={window.location.origin + '/no_image.png'}  alt={this.props.film.title}/>                                         
+                        <img  src={'%PUBLIC_URL%' + '/no_image.png'}  alt={this.props.film.title}/>                                         
                     }
                 </div>
                 <div className="centre">
