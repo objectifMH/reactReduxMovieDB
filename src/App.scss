@@ -12,6 +12,7 @@ body,
 header,
 #intro {
     height: 100%;
+    background: purple ! important;
 }
 
 #intro {
@@ -26,7 +27,7 @@ header,
 body,
 html {
     height: 100%;
-    background: purple;
+    
 }
 
 @media (max-width:740px) {

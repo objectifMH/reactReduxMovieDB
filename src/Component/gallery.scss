@@ -22,14 +22,14 @@ h3 {
 }
 
 .modal-content {
-    background-color: #480248;
-    color: white;
-    border: 7px solid white;
+    background-color: #480248 !important;
+    color: white !important;
+    border: 7px solid white !important;
 }
 
 .modal-close {
-    color: red;
-    transition: all .2s ease-in-out;
+    color: red !important;
+    transition: all .2s ease-in-out !important;
     cursor: pointer;
 
     background-size:contain !important;
@@ -40,7 +40,7 @@ h3 {
 
 .modal-close:hover {
     color: red;
-    transform: rotate(90deg)  scale(1.49);
+    transform:   scale(1.49);
 }
 
 

@@ -1,17 +1,30 @@
 .div-card {
     width: 12vw;
-    background: #480248;
+    background: #480248 !important;
     color: white;
 
     transition: all .2s ease-in-out;
-    //cursor: pointer;
+    cursor: pointer;
 
+    .fa-comment-dots {
+        
+        color: white;
+        opacity: 0;
 
+        font-size: 24px !important;
+        right: 10px;
+        top: 10px;
+        position: absolute;
+
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+
+    }
 
     .fa-plus-circle {
         font-size: 20px !important;
         bottom: -10px;
-        left: 0;
+        right: 0;
         position: absolute;
     
         transition: all .2s ease-in-out;
@@ -29,7 +42,7 @@
     .fa-check-circle {
         font-size: 26px !important;
         bottom: -10px;
-        left: 0;
+        right: 0;
         position: absolute;
     
         transition: all .2s ease-in-out;
@@ -51,15 +64,23 @@
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     z-index: 5;
 
-    .fa-expand {
+    .fa-comment-dots {
         
         color: white;
         opacity: 0.5;
 
+        font-size: 20px !important;
+        right: 8px;
+        top: 8px;
+        position: absolute;
+
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+
         &:hover {
             opacity: 1;
             color: white;
-            transform: rotate(180deg)  scale(1.59);
+            transform:   scale(1.59);
         }
     }
     
@@ -69,28 +90,6 @@
     border: 2px solid white;
     background: lightgrey;
     z-index: 2;
-}
-
-
-body {
-    background: purple;
-}
-
-svg {
-    color: white;
-    font-size: 9em !important;
-    margin: auto;
-}
-
-.fa-expand {
-    opacity: 0;
-    font-size: 24px !important;
-        right: 10px;
-        top: 10px;
-        position: absolute;
-
-        transition: all .2s ease-in-out;
-        cursor: pointer;
 }
 
 

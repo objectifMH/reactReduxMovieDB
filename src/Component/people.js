@@ -100,7 +100,7 @@ constructor(props) {
                         {
                             this.state.acteur.profile_path !== null ? 
                             <img src={this.state.urlImage+this.state.acteur.profile_path}  alt={this.state.acteur.name}/> :
-                            <img src={window.location.origin + '/no_image.png' }  alt={this.state.acteur.name} />
+                            <img src={process.env.PUBLIC_URL  + '/no_image.png' }  alt={this.state.acteur.name} />
 
                         }
                         
@@ -134,7 +134,7 @@ constructor(props) {
                 </div>
                 </div>
 
-                <h3 className="m-2">Films </h3>
+                <h3 className="m-2">Movies </h3>
                 {
                     this.state.films != null ? 
                         <div className="row">
@@ -152,7 +152,7 @@ constructor(props) {
                     
                 }
 
-                {( this.state.series != null && this.state.series.cast.length > 0) &&  <h3 className="m-2">Series </h3>}
+                {( this.state.series != null && this.state.series.cast.length > 0) &&  <h3 className="m-2">Tv Shows </h3>}
                 {
                     this.state.series != null  
                     ?  

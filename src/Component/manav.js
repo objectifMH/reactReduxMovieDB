@@ -33,7 +33,7 @@ class Manav extends Component {
                                     <span className="sr-only">(current)</span>
                                 </li>
                                 <li className="nav-item mx-2">
-                                    <Link className="nav-link" to='/favoris' >Mes favoris<span className="badge badge-success badge-pill mr-1 nb-fav">{this.props.films.length}</span></Link>
+                                    <Link className="nav-link" to='/favoris' >My favourites<span className="badge badge-success badge-pill mr-1 nb-fav">{this.props.films.length}</span></Link>
                                     
                                 </li>								
                             </ul>

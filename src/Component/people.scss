@@ -44,9 +44,9 @@ h1 {
 }
 
 .btn-film {
-    background-color: #480248;
-    color: white;
-    transition: all .2s ease-in-out;
+    background-color: #480248 !important;
+    color: white !important;
+    transition: all .2s ease-in-out !important;
 }
 
 .btn-film:hover {
@@ -57,9 +57,9 @@ h1 {
 }
 
 .btn-serie {
-    background-color: lightgray;
-    color: #480248;
-    transition: all .2s ease-in-out;
+    background-color: lightgray !important;
+    color: #480248 !important;
+    transition: all .2s ease-in-out !important;
 }
 
 .btn-serie:hover {

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+
+import { Link } from 'react-router-dom';
 //import './card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faPlusCircle, faExpand, faCheckCircle} from '@fortawesome/free-solid-svg-icons';
-
+import { faCommentDots, faPlusCircle, faExpand, faCheckCircle} from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 
@@ -18,7 +20,8 @@ class Card extends Component {
             isFavorite: false
         }
 
-        //console.log(this.props, this.props.film['poster_path']);
+        console.log(this.props, this.props.film['poster_path']);
+        
     }
 
     componentDidMount() {
@@ -64,6 +67,13 @@ class Card extends Component {
         
     }
 
+    clickFilm = (ev) => {
+        console.log(this.props);
+        
+        return this.props.tv ? window.location.assign('/film/'+this.props.film.id+'/tv') : window.location.assign('/film/'+this.props.film.id+'/movie');
+
+    }
+
     render() {
 
         let fav = false;
@@ -92,8 +102,13 @@ class Card extends Component {
                             }
                     
                     </h6>
-                    {this.props.film['poster_path']=== null ? <img className="card-img-top"  src={process.env.PUBLIC_URL +'/no_image.png'}  alt={this.props.film.title}/>: <img className="card-img-top" src={this.state.urlImage + this.props.film['poster_path']} alt={this.props.film.title} />}
-                    <FontAwesomeIcon icon={faExpand}     title="Plus de détails" 
+                    {
+                        this.props.film['poster_path']=== null ? <img className="card-img-top"  src={process.env.PUBLIC_URL +'/no_image.png'}  alt={this.props.film.title} onClick={this.clickFilm}/>: <img className="card-img-top" src={this.state.urlImage + this.props.film['poster_path']} alt={this.props.film.title}
+                        onClick={this.clickFilm}
+                        >
+                       
+                    </img>}
+                    <FontAwesomeIcon icon={faCommentDots}     title="Plus de détails" 
                                                             data-toggle="modal" data-target="#myModal" 
                                                             onClick={this.clickCollapseCard} />
 

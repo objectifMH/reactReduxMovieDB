@@ -19,6 +19,14 @@ export default class FilmFav extends Component {
              
         }
     }
+
+
+    clickFilm = (ev) => {
+        console.log(this.props);
+        
+        //return this.props.tv ? window.location.assign('/film/'+this.props.film.id+'/tv') : window.location.assign('/film/'+this.props.film.id+'/movie');
+
+    }
     
     render() {
 
@@ -26,7 +34,7 @@ export default class FilmFav extends Component {
         console.log(this.props.film)
 
         return (
-            <div className=" container my-container-film">
+            <div className=" container my-container-film" onClick={this.clickFilm}>
                 <div className="gauche">
 
                     {

@@ -144,7 +144,7 @@ export default class Gallery extends Component {
                 }
                 
 
-                <h3>Les films les + populaires</h3>
+                <h3>Movies most Popular</h3>
                 {
                     
                     <div>
@@ -204,7 +204,7 @@ export default class Gallery extends Component {
 
                 { /** Les Meilleurs séries  */}
 
-                <h3>Les Séries les + populaires</h3>
+                <h3>Tv Show most Popular</h3>
                 <div className="container-fluid color-grey div-cont ">
                     {
                         this.state.listSerie.map((serie, index) => (
