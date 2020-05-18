@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/reactReduxMovieDB/static/css/main.7e4ae98c.chunk.css",
-    "main.js": "/reactReduxMovieDB/static/js/main.14e7c545.chunk.js",
-    "main.js.map": "/reactReduxMovieDB/static/js/main.14e7c545.chunk.js.map",
+    "main.css": "/reactReduxMovieDB/static/css/main.5e550911.chunk.css",
+    "main.js": "/reactReduxMovieDB/static/js/main.3e38b9b0.chunk.js",
+    "main.js.map": "/reactReduxMovieDB/static/js/main.3e38b9b0.chunk.js.map",
     "runtime-main.js": "/reactReduxMovieDB/static/js/runtime-main.294af6e1.js",
     "runtime-main.js.map": "/reactReduxMovieDB/static/js/runtime-main.294af6e1.js.map",
     "static/css/2.69121389.chunk.css": "/reactReduxMovieDB/static/css/2.69121389.chunk.css",
-    "static/js/2.8947fd9a.chunk.js": "/reactReduxMovieDB/static/js/2.8947fd9a.chunk.js",
-    "static/js/2.8947fd9a.chunk.js.map": "/reactReduxMovieDB/static/js/2.8947fd9a.chunk.js.map",
+    "static/js/2.671ff7ce.chunk.js": "/reactReduxMovieDB/static/js/2.671ff7ce.chunk.js",
+    "static/js/2.671ff7ce.chunk.js.map": "/reactReduxMovieDB/static/js/2.671ff7ce.chunk.js.map",
     "index.html": "/reactReduxMovieDB/index.html",
-    "precache-manifest.fda1e9943428efe0cdb297b8f9e2d871.js": "/reactReduxMovieDB/precache-manifest.fda1e9943428efe0cdb297b8f9e2d871.js",
+    "precache-manifest.a761b24a272c8dfb1d733dd3e8c0c79e.js": "/reactReduxMovieDB/precache-manifest.a761b24a272c8dfb1d733dd3e8c0c79e.js",
     "service-worker.js": "/reactReduxMovieDB/service-worker.js",
     "static/css/2.69121389.chunk.css.map": "/reactReduxMovieDB/static/css/2.69121389.chunk.css.map",
-    "static/css/main.7e4ae98c.chunk.css.map": "/reactReduxMovieDB/static/css/main.7e4ae98c.chunk.css.map",
-    "static/js/2.8947fd9a.chunk.js.LICENSE.txt": "/reactReduxMovieDB/static/js/2.8947fd9a.chunk.js.LICENSE.txt"
+    "static/css/main.5e550911.chunk.css.map": "/reactReduxMovieDB/static/css/main.5e550911.chunk.css.map",
+    "static/js/2.671ff7ce.chunk.js.LICENSE.txt": "/reactReduxMovieDB/static/js/2.671ff7ce.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.294af6e1.js",
     "static/css/2.69121389.chunk.css",
-    "static/js/2.8947fd9a.chunk.js",
-    "static/css/main.7e4ae98c.chunk.css",
-    "static/js/main.14e7c545.chunk.js"
+    "static/js/2.671ff7ce.chunk.js",
+    "static/css/main.5e550911.chunk.css",
+    "static/js/main.3e38b9b0.chunk.js"
   ]
 }
