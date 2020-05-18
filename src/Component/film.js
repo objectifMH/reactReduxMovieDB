@@ -19,7 +19,7 @@ class Film extends Component {
             acteurs: null,
             urlQuery: "https://api.themoviedb.org/3/",
             urlCover: "http://api.themoviedb.org/3/search/movie?api_key=369db2052a84d1a49d133d25a3983cbd&query=",
-            urlImage: "https://image.tmdb.org/t/p/original/",
+            urlImage: "https://image.tmdb.org/t/p/original",
             apiKey: "369db2052a84d1a49d133d25a3983cbd",
             isFavorite: null,
             type: null
@@ -186,9 +186,10 @@ class Film extends Component {
 
                                         this.state.acteurs.cast.map((acteur, index) =>
 
-                                            index <= 10 ? <Link className="nav-link link-people" to={'/people/' + acteur.id}  key={index}><span className="btn btn-info m-1 mt-3" >{acteur.name}</span></Link> :
+                                            index <= 10 ? <Link className="nav-link link-people" to={'/people/' + acteur.id}  key={index} 
+                                            data-toggle="tooltip" title={"<img src="+this.state.urlImage+acteur.profile_path+" />"}
+                                            ><span className="btn btn-info m-1 mt-3" >{acteur.name}</span></Link> :
                                             ''
-
                                         ) : 
                                         <div className="spinner-border text-info"></div>
 
