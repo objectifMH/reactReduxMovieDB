@@ -100,7 +100,7 @@ constructor(props) {
                         {
                             this.state.acteur.profile_path !== null ? 
                             <img src={this.state.urlImage+this.state.acteur.profile_path}  alt={this.state.acteur.name}/> :
-                            <img src={process.env.PUBLIC_URL  + '/no_image.png' }  alt={this.state.acteur.name} />
+                            <img src={process.env.PUBLIC_URL +'/no_image.png'}  alt={this.state.acteur.name} />
 
                         }
                         
