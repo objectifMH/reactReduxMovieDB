@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 100%;
     justify-content: space-around;
+    align-items: center;
 }
 
 .vide {
@@ -11,9 +12,13 @@
 
 .logo {
     color: white;
-    font-size: 18px;
     font-weight: bolder;
+    font-size: x-large;
     
     text-shadow:rgba(0,0,0,0.75) 3px 4px;
 
+}
+
+a.nav-link {
+    padding: 0;
 }
