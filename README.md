@@ -1,5 +1,5 @@
 
-Ce projet a été déployé et vous pouvez le tester sur : https://objectifmh.github.io/home
+Ce projet a été déployé et vous pouvez le tester sur : https://objectifmh.github.io/reactReduxMovieDB/
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
