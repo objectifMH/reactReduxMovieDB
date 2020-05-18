@@ -24,7 +24,7 @@ export default class FilmFav extends Component {
     clickFilm = (ev) => {
         console.log(this.props);
         
-        //return this.props.tv ? window.location.assign('/film/'+this.props.film.id+'/tv') : window.location.assign('/film/'+this.props.film.id+'/movie');
+        return this.props.tv ? window.location.assign('/film/'+this.props.film.id+'/tv') : window.location.assign('/film/'+this.props.film.id+'/movie');
 
     }
     
