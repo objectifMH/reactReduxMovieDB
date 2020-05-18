@@ -1,0 +1,20 @@
+.manav-ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.vide {
+    flex:8;
+}
+
+.logo {
+    color: white;
+    font-size: x-large;
+    font-weight: bolder;
+    //left: 0;
+    
+    text-shadow:rgba(0,0,0,0.75) 0 -2px;
+
+}

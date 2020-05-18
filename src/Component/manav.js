@@ -27,7 +27,13 @@ class Manav extends Component {
                         <div className="collapse navbar-collapse" id="basicExampleNav">
                     
                     
-                            <ul className="navbar-nav mx-auto mr-auto">
+                            <ul className="navbar-nav mx-auto mr-auto manav-ul">
+                                <li className="nav-item active mx-2 logo">MirrorMedia
+                                    <span className="sr-only "></span>
+                                </li>
+                                <li className="nav-item active mx-2 vide">
+                                    <span className="sr-only "></span>
+                                </li>
                                 <li className="nav-item active mx-2">
                                     <Link className="nav-link" to='/home' > Home </Link>
                                     <span className="sr-only">(current)</span>
