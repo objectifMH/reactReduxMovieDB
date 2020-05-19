@@ -27,7 +27,7 @@ class Favoris extends Component {
                             <FontAwesomeIcon icon={faTrash} onClick={() => this.supprimeFilmFav(film)}/>
                         </div>
                         )                      :
-                        <p>Votre liste de favoris est vide </p>
+                        <p className="your-list">Your List is empty </p>
                 }
             </div>
         )
