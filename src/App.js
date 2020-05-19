@@ -20,6 +20,8 @@ function App() {
         <Router>
           <Manav></Manav>
           <Switch>
+          
+            <Route path={`${process.env.PUBLIC_URL}/`} component={Home}></Route>
             <Route path="/home" component={Home}></Route>
             <Route path="/gallery" component={Gallery}></Route>
             <Route path="/film/:id/:type" component={Film}></Route>
