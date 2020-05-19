@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/reactReduxMovieDB/static/css/main.65ca5914.chunk.css",
-    "main.js": "/reactReduxMovieDB/static/js/main.3d2ae9e6.chunk.js",
-    "main.js.map": "/reactReduxMovieDB/static/js/main.3d2ae9e6.chunk.js.map",
+    "main.css": "/reactReduxMovieDB/static/css/main.2093828f.chunk.css",
+    "main.js": "/reactReduxMovieDB/static/js/main.7f893b83.chunk.js",
+    "main.js.map": "/reactReduxMovieDB/static/js/main.7f893b83.chunk.js.map",
     "runtime-main.js": "/reactReduxMovieDB/static/js/runtime-main.294af6e1.js",
     "runtime-main.js.map": "/reactReduxMovieDB/static/js/runtime-main.294af6e1.js.map",
     "static/css/2.69121389.chunk.css": "/reactReduxMovieDB/static/css/2.69121389.chunk.css",
     "static/js/2.afdf3213.chunk.js": "/reactReduxMovieDB/static/js/2.afdf3213.chunk.js",
     "static/js/2.afdf3213.chunk.js.map": "/reactReduxMovieDB/static/js/2.afdf3213.chunk.js.map",
     "index.html": "/reactReduxMovieDB/index.html",
-    "precache-manifest.2181944784974078c3c4c955d0fbbeaa.js": "/reactReduxMovieDB/precache-manifest.2181944784974078c3c4c955d0fbbeaa.js",
+    "precache-manifest.f66e7a44fe63e0bae46ff26be63024a6.js": "/reactReduxMovieDB/precache-manifest.f66e7a44fe63e0bae46ff26be63024a6.js",
     "service-worker.js": "/reactReduxMovieDB/service-worker.js",
     "static/css/2.69121389.chunk.css.map": "/reactReduxMovieDB/static/css/2.69121389.chunk.css.map",
-    "static/css/main.65ca5914.chunk.css.map": "/reactReduxMovieDB/static/css/main.65ca5914.chunk.css.map",
+    "static/css/main.2093828f.chunk.css.map": "/reactReduxMovieDB/static/css/main.2093828f.chunk.css.map",
     "static/js/2.afdf3213.chunk.js.LICENSE.txt": "/reactReduxMovieDB/static/js/2.afdf3213.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.294af6e1.js",
     "static/css/2.69121389.chunk.css",
     "static/js/2.afdf3213.chunk.js",
-    "static/css/main.65ca5914.chunk.css",
-    "static/js/main.3d2ae9e6.chunk.js"
+    "static/css/main.2093828f.chunk.css",
+    "static/js/main.7f893b83.chunk.js"
   ]
 }
