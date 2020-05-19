@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
+import $ from 'jquery';
 
 //import './film.scss';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleLeft , faPlusCircle , faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { connect } from 'react-redux';
+import { findDOMNode } from 'react-dom';
 
 class Film extends Component {
     constructor(props) {
@@ -41,6 +43,8 @@ class Film extends Component {
             type: type }),
             () => this.getFilm(this.state.filmId)
         )
+
+
 
     }
 
@@ -155,11 +159,11 @@ class Film extends Component {
 
                         <div className="container-gd">
                             <div className="gauche">
-                                <img src={srcPoster}  alt={this.state.film.title}/>
+                                <img  src={srcPoster}  alt={this.state.film.title}/>
                                 
                             </div>
                             <div className="droite">
-                                <div className="sypnosis">
+                                <div   className="sypnosis"  ref={"myRef"}>
                                     {
                                         this.state.film.genres.map((genre, index) =>
                                             <span key={index} className="badge badge-success badge-pill mr-1 genre">{genre.name}
@@ -180,15 +184,25 @@ class Film extends Component {
                                     }
                                     </span>
                                     
-                                    <span className="badge badge-warning badge-pill vote">Vote : {this.state.film.vote_average}</span>
+                                    <span 
+                                        title={"<img src="+process.env.PUBLIC_URL +'/no_image.png'+" />"}
+                                        className="badge badge-warning badge-pill vote">Vote : {this.state.film.vote_average}
+                                    </span>
                                     
                                     {this.state.acteurs != null ? 
 
                                         this.state.acteurs.cast.map((acteur, index) =>
 
-                                            index <= 10 ? <Link className="nav-link link-people" to={'/people/' + acteur.id}  key={index} 
-                                            data-toggle="tooltip" title={"<img src="+this.state.urlImage+acteur.profile_path+" />"}
-                                            ><span className="btn btn-info m-1 mt-3" >{acteur.name}</span></Link> :
+                                            index <= 10 ? 
+                                            <div className="acteur"  key={index}>
+
+                                            <Link  className="nav-link link-people" to={'/people/' + acteur.id}  
+                                            ><span  className="btn btn-info m-1 mt-3" >{acteur.name}</span></Link> 
+                                                <div  className="myToolTip" value={index}>
+                                                    <img src={process.env.PUBLIC_URL +'/no_image.png'} alt="no" />
+                                                </div>
+                                            </div>
+                                            :
                                             ''
                                         ) : 
                                         <div className="spinner-border text-info"></div>

@@ -125,7 +125,7 @@ constructor(props) {
                         {
                             this.state.acteur.biography.split(' ').length >= 30 ? 
                             <button  className="btn btn-info btn-sm mt-2 ml-3" data-toggle="collapse" data-target="#colapse-biography" 
-                        onClick={this.myCollapse}>{this.state.isCollapse === false ? 'Voir plus' : 'Voir moins'}</button> 
+                        onClick={this.myCollapse}>{this.state.isCollapse === false ? 'More' : 'Less'}</button> 
                             : ''
                         }
 

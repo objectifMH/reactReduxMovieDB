@@ -163,6 +163,27 @@
 
 }
 
+.acteur {
+    display: inline-block;
+}
+
+.myToolTip {
+   display: none;
+    width: 90px;
+    height: 90px;
+    position: relative;
+
+    img {
+        top: -110px;
+        right: -60px;
+        position: absolute;
+        z-index: 5;
+        border: 2px solid white;
+        width: 60px !important;
+        
+    }
+}
+
 @media (max-width: 768px) {
 
     .header-container {
@@ -179,10 +200,6 @@
         margin : 15px !important; 
     }
 
-    .fa-check-circle, .fa-plus-circle {
-        position: relative!important;
-        margin : 2px 15px 34px 24px !important; 
-        left: 0;
-    }
+   
 
 }
