@@ -26,7 +26,7 @@ function App() {
             <Route path="/gallery" component={Gallery}></Route>
             <Route path="/film/:id/:type" component={Film}></Route>
             <Route path="/people/:id" component={People}></Route>
-            <Route path={`${process.env.PUBLIC_URL}/favoris`} component={Favoris}></Route>
+            <Route path="/favoris" component={Favoris}></Route>
 
           </Switch>
         </Router>
