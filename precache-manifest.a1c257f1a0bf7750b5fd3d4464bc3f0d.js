@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3af26c2ae767fa90b9dd272e057cf9e2",
+    "revision": "dd56d0f0403b8363f38818bad032359c",
     "url": "/reactReduxMovieDB/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/reactReduxMovieDB/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "796378bdb5feb84437c8",
-    "url": "/reactReduxMovieDB/static/css/main.08e63242.chunk.css"
+    "revision": "686f7783716bcb0fb546",
+    "url": "/reactReduxMovieDB/static/css/main.95f929fa.chunk.css"
   },
   {
     "revision": "593699afe388fd5cc2f1",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/reactReduxMovieDB/static/js/2.8b99dafd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "796378bdb5feb84437c8",
+    "revision": "686f7783716bcb0fb546",
     "url": "/reactReduxMovieDB/static/js/main.0614a3ee.chunk.js"
   },
   {
