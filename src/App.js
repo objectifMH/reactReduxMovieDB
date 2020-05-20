@@ -11,30 +11,36 @@ import Film from './Component/film';
 import People from './Component/people';
 import Favoris from './Component/favoris';
 import Home from './Component/home';
+import Footer from './Component/footer';
 
 
 function App() {
   return (
     <div>
-      <header>
-        <Router>
-          <Manav></Manav>
-          <Switch>
-          
-            <Route path={`${process.env.PUBLIC_URL}/`} component={Home}></Route>
-            <Route path="/home" component={Home}></Route>
-            <Route path="/gallery" component={Gallery}></Route>
-            <Route path="/film/:id/:type" component={Film}></Route>
-            <Route path="/people/:id" component={People}></Route>
-            <Route path="/favoris" component={Favoris}></Route>
+      <div className="header-app">
+        <header>
+          <Router>
+            <Manav></Manav>
+            <div className="my-switch">
+              <Switch>
+              
+                <Route path={`${process.env.PUBLIC_URL}/`} component={Home}></Route>
+                <Route path="/home" component={Home}></Route>
+                <Route path="/gallery" component={Gallery}></Route>
+                <Route path="/film/:id/:type" component={Film}></Route>
+                <Route path="/people/:id" component={People}></Route>
+                <Route path="/favoris" component={Favoris}></Route>
 
-          </Switch>
-        </Router>
-      </header>
+            </Switch>
+            </div>
+            
+            
+            <Footer></Footer>
+          </Router>
+        </header>
+      </div>
       
-      <footer>
-
-      </footer>
+      
 
     </div>
 

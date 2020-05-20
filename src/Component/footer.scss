@@ -1,0 +1,70 @@
+.footer {
+    height: 100px;
+    background:#480248;
+    color: white;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    //padding: 15px 10px 1px;
+
+    display: flex;
+    flex-direction: column;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        flex: 1;
+        justify-content: space-around;
+        align-items: center;
+
+
+        li {
+            //background: red;
+            padding: 15px;
+
+            .fa-linkedin-in, .fa-github  {
+                font-size: 24px;
+                padding: 3px;
+                color: #56c3bd;
+                
+
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    color: white;
+                    transform: scale(1.29);
+                }
+            }
+
+            .logo-bottom {
+                color: white;
+                font-weight: bolder;
+                font-size: large;
+
+    
+                text-shadow:rgba(0,0,0,0.75) 1px 2px;
+
+            }
+
+            img {
+                width: 50px;
+            }
+        }
+    }
+
+    .footer-foot {
+        //position: absolute;
+        font-size: small;
+        bottom: 15px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        align-items: center;
+        margin: 5px;
+    }
+
+}

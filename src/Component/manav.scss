@@ -1,10 +1,20 @@
+.ma-nav-container {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    height: 50px;
+}
+
+
+
 .manav-ul {
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    //height: 50px;
 }
 
 .vide {

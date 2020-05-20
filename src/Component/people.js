@@ -136,7 +136,6 @@ constructor(props) {
                 {
                     this.state.films != null ? 
                         <div className="row">
-                        <br></br>
                         {
                             this.state.films != null ? 
                             this.state.films.map( (film, index) => 
@@ -155,7 +154,6 @@ constructor(props) {
                     this.state.series != null  
                     ?  
                     <div className="row">
-                        <br></br>
                         {
                             this.state.series != null ? 
                             this.state.series.cast.map( (serie, index) => 
