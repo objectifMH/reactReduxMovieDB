@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 //import './card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentDots, faPlusCircle, faExpand, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { useHistory } from 'react-router';
+import { faCommentDots, faPlusCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 
 
@@ -22,7 +21,7 @@ class Card extends Component {
 
     }
     verifFavorite() {
-        this.props.films.map(film => {
+        return this.props.films.map(film => {
             if (film.id === this.props.film.id) {
                 this.setState(
                     prevState => ({ isFavorite: true })
@@ -64,7 +63,7 @@ class Card extends Component {
         }
 
         const type = this.props.film.first_air_date !== undefined  ? "tv" : "movie";
-        console.log(this.props.film)
+        //console.log(this.props.film)
 
         return (
             <div className="m-2">

@@ -25,7 +25,7 @@ export default class Home extends Component {
                 const films = res.data.results;
                 this.setState(
                     prevState => ({ films }),
-                    () => console.log(this.state.films[0])
+                    //() => console.log(this.state.films[0])
                 );
             })
     }

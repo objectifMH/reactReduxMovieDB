@@ -10,7 +10,7 @@ import {  faTrash } from '@fortawesome/free-solid-svg-icons';
 class Favoris extends Component {
     
     supprimeFilmFav = (film) => {
-        console.log(film);
+        //console.log(film);
         this.props.supprimeFilmFavDispatch(film);
     }
 

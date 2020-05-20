@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 //import './gallery.scss';
 import Card from './card.js';
 import axios from 'axios';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 export default class Gallery extends Component {
@@ -58,32 +55,25 @@ export default class Gallery extends Component {
                     () => this.getSerie()
                 );
             })
-        //console.log(this.state.films);
     }
 
     getFilms(inputSearch) {
         axios.get(this.state.urlSearch.concat(inputSearch))
             .then(res => {
                 const films = res.data.results;
-                console.log(films);
                 this.setState({ listFilm: films });
             })
-        console.log(this.state.listFilm)
     }
 
     getSerie(inputSearch) {
-        console.log(inputSearch);
-        let testSerie = 'https://api.themoviedb.org/3/discover/tv?api_key=369db2052a84d1a49d133d25a3983cbd&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false';
         let suffixe = inputSearch !== undefined ? 'search/tv' + this.state.api_key + '&query='
             : 'discover/tv?api_key=369db2052a84d1a49d133d25a3983cbd&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false';
-        console.log(inputSearch, this.state.urlBase.concat(suffixe, inputSearch));
+        //console.log(inputSearch, this.state.urlBase.concat(suffixe, inputSearch));
         axios.get(this.state.urlBase.concat(suffixe) + inputSearch)
             .then(res => {
                 const listSerie = res.data.results;
-                console.log(res.data.results)
                 this.setState(
-                    prevState => ({ listSerie }),
-                    () => console.log(listSerie)
+                    prevState => ({ listSerie })
 
                 );
             })

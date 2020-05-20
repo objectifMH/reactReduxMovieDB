@@ -40,7 +40,6 @@ constructor(props) {
         axios.get(url)
             .then(res => {
                 const acteurRes = res.data;
-                console.log(res.data);
 
                 this.setState(
                     prevState => ({ acteur: acteurRes }),
@@ -52,14 +51,13 @@ constructor(props) {
 
     getSeries() {
 
-        console.log("cherche series tv");
         let url = "".concat(this.state.urlQuery, this.state.acteurId, "/tv_credits?api_key=", this.state.apiKey);
         axios.get(url)
             .then(res => {
                 const series = res.data;
                 this.setState(
                     prevState => ({ series }),
-                    () => console.log(this.state.series.cast) 
+                    //() => console.log(this.state.series.cast) 
                 );
         })
     }

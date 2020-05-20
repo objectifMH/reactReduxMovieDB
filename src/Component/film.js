@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
-import $ from 'jquery';
 
 //import './film.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleLeft , faPlusCircle , faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleLeft, faPlusCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { connect } from 'react-redux';
-import { findDOMNode } from 'react-dom';
 
 class Film extends Component {
     constructor(props) {
@@ -28,19 +26,18 @@ class Film extends Component {
 
             //https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>
         }
-        console.log(this.props);
     }
 
     componentDidMount() {
-        
-        let paramId = this.props.match.params.id; 
+
+        let paramId = this.props.match.params.id;
         let type = this.props.match.params.type;
-        console.log(paramId);
-        console.log(this.state.films);
 
         this.setState(
-            prevState => ({ filmId: paramId,
-            type: type }),
+            prevState => ({
+                filmId: paramId,
+                type: type
+            }),
             () => this.getFilm(this.state.filmId)
         )
 
@@ -53,21 +50,19 @@ class Film extends Component {
         axios.get(url)
             .then(res => {
                 const filmResult = res.data;
-                console.log(res.data);
 
                 this.setState(
-                    prevState => ({ film: filmResult , isFavorite: false }),
+                    prevState => ({ film: filmResult, isFavorite: false }),
                     () => {
                         this.getActeurs();
                         // eslint-disable-next-line array-callback-return
                         this.props.films.map(film => {
-                            if (film.id === this.state.film.id)
-                                {
-                                    this.setState(
-                                        prevState => ({ isFavorite: true })
-                                    );
-                                 }
-                        }) 
+                            if (film.id === this.state.film.id) {
+                                this.setState(
+                                    prevState => ({ isFavorite: true })
+                                );
+                            }
+                        })
 
                     }
                 );
@@ -82,7 +77,6 @@ class Film extends Component {
         axios.get(url)
             .then(res => {
                 const acteursRes = res.data;
-                console.log(res.data);
 
                 this.setState(
                     prevState => ({ acteurs: acteursRes })
@@ -90,39 +84,36 @@ class Film extends Component {
             })
     }
 
-    
+
 
     clickAjouterFilmFav = (film) => {
-        console.log(film);
         this.setState(
             prevState => ({ isFavorite: !this.state.isFavorite }),
             () => this.props.ajouterFilmFavDispatch(film)
         );
-        
+
     }
 
-    clickSuppFilmFav= (film) => {
-        console.log(film);
+    clickSuppFilmFav = (film) => {
         this.setState(
             prevState => ({ isFavorite: !this.state.isFavorite }),
             () => this.props.supprimeFilmFavDispatch(film)
         );
-        
+
     }
 
     render() {
 
-        console.log(this.props.film)
-        let srcBack =   this.state.film ? ( this.state.film['backdrop_path'] ? this.state.urlImage + this.state.film['backdrop_path'] : window.location.origin + '')
-                                    : window.location.origin + ''
-                ;
-        let srcPoster =   this.state.film ? ( this.state.film['poster_path'] ? this.state.urlImage + this.state.film['poster_path'] : process.env.PUBLIC_URL +'/no_image.png')
-                                    : process.env.PUBLIC_URL +'/no_image.png'
-                ;
+        let srcBack = this.state.film ? (this.state.film['backdrop_path'] ? this.state.urlImage + this.state.film['backdrop_path'] : window.location.origin + '')
+            : window.location.origin + ''
+            ;
+        let srcPoster = this.state.film ? (this.state.film['poster_path'] ? this.state.urlImage + this.state.film['poster_path'] : process.env.PUBLIC_URL + '/no_image.png')
+            : process.env.PUBLIC_URL + '/no_image.png'
+            ;
 
         if (this.state.film != null)
             return (
-                
+
                 <div className="container-fluid header-container" style={{
                     backgroundImage: "url(" + srcBack + ")"
                 }}>
@@ -133,37 +124,37 @@ class Film extends Component {
 
                         <h1>
                             {
-                                this.state.type === 'movie' ? 
-                                this.state.film.title
-                                :
-                                this.state.film.name 
+                                this.state.type === 'movie' ?
+                                    this.state.film.title
+                                    :
+                                    this.state.film.name
                             }
-                        <span className="date"> ({
-                            this.state.type === 'movie' 
-                            ? 
-                            this.state.film.release_date
-                            :
-                            this.state.film.first_air_date + ' / ' + this.state.film.last_air_date
-                        }) 
+                            <span className="date"> ({
+                                this.state.type === 'movie'
+                                    ?
+                                    this.state.film.release_date
+                                    :
+                                    this.state.film.first_air_date + ' / ' + this.state.film.last_air_date
+                            })
                         </span>
-                            
+
                             <p className="tagline">{
-                                this.state.type === 'movie' 
-                                ? 
-                                this.state.film.tagline
-                                :
-                                this.state.film.original_name
-                            
+                                this.state.type === 'movie'
+                                    ?
+                                    this.state.film.tagline
+                                    :
+                                    this.state.film.original_name
+
                             }</p>
                         </h1>
 
                         <div className="container-gd">
                             <div className="gauche">
-                                <img  src={srcPoster}  alt={this.state.film.title}/>
-                                
+                                <img src={srcPoster} alt={this.state.film.title} />
+
                             </div>
                             <div className="droite">
-                                <div   className="sypnosis"  ref={"myRef"}>
+                                <div className="sypnosis">
                                     {
                                         this.state.film.genres.map((genre, index) =>
                                             <span key={index} className="badge badge-success badge-pill mr-1 genre">{genre.name}
@@ -177,34 +168,33 @@ class Film extends Component {
                                         {this.state.film.overview}
                                     </p>
                                     <span>
-                                    {
-                                        this.state.isFavorite === false ? 
-                                        <FontAwesomeIcon icon={faPlusCircle} onClick={() => this.clickAjouterFilmFav(this.state.film)} /> :
-                                        <FontAwesomeIcon icon={faCheckCircle} onClick={() => this.clickSuppFilmFav(this.state.film)} />
-                                    }
+                                        {
+                                            this.state.isFavorite === false ?
+                                                <FontAwesomeIcon icon={faPlusCircle} onClick={() => this.clickAjouterFilmFav(this.state.film)} /> :
+                                                <FontAwesomeIcon icon={faCheckCircle} onClick={() => this.clickSuppFilmFav(this.state.film)} />
+                                        }
                                     </span>
-                                    
-                                    <span 
-                                        title={"<img src="+process.env.PUBLIC_URL +'/no_image.png'+" />"}
+
+                                    <span
                                         className="badge badge-warning badge-pill vote">Vote : {this.state.film.vote_average}
                                     </span>
-                                    
-                                    {this.state.acteurs != null ? 
+
+                                    {this.state.acteurs != null ?
 
                                         this.state.acteurs.cast.map((acteur, index) =>
 
-                                            index <= 10 ? 
-                                            <div className="acteur"  key={index}>
+                                            index <= 10 ?
+                                                <div className="acteur" key={index}>
 
-                                            <Link  className="nav-link link-people" to={'/people/' + acteur.id}  
-                                            ><span  className="btn btn-info m-1 mt-3" >{acteur.name}</span></Link> 
-                                                <div  className="myToolTip" value={index}>
-                                                    <img src={process.env.PUBLIC_URL +'/no_image.png'} alt="no" />
+                                                    <Link className="nav-link link-people" to={'/people/' + acteur.id}
+                                                    ><span className="btn btn-info m-1 mt-3" >{acteur.name}</span></Link>
+                                                    <div className="myToolTip" value={index}>
+                                                        <img src={process.env.PUBLIC_URL + '/no_image.png'} alt="no" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            :
-                                            ''
-                                        ) : 
+                                                :
+                                                ''
+                                        ) :
                                         <div className="spinner-border text-info"></div>
 
                                     }
@@ -231,11 +221,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         supprimeFilmFavDispatch: film => {
-            dispatch({ type: "SUPP_FILM_FAV", film: film});
+            dispatch({ type: "SUPP_FILM_FAV", film: film });
         },
 
         ajouterFilmFavDispatch: film => {
-            dispatch({ type: "AJ_FILM_FAV", film: film});
+            dispatch({ type: "AJ_FILM_FAV", film: film });
         }
     }
 }

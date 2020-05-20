@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 //import './filmFav.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faTimes, faCheckCircle} from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faCheckCircle} from '@fortawesome/free-solid-svg-icons';
 
 export default class FilmFav extends Component {
 
@@ -23,7 +23,7 @@ export default class FilmFav extends Component {
     render() {
 
         const type = this.props.film.first_air_date !== undefined  ? "tv" : "movie";
-        console.log(this.props.film)
+        //console.log(this.props.film)
 
         return (
             <Link className="nav-link link-people" to={'/film/' + this.props.film.id+'/'+type}  >
