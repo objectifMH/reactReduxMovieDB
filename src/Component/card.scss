@@ -6,6 +6,10 @@
     transition: all .2s ease-in-out;
     cursor: pointer;
 
+    .card-title {
+        display: none;
+    }
+
     .nav-link {
         padding: 0;
     }
