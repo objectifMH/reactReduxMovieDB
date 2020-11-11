@@ -82,6 +82,10 @@ h3 {
 .input-group {
     width: 60%;
     margin: auto;
+    justify-content: center;
+    align-items: flex-end !important;
+    display: flex;
+    flex-direction: row;
     
     input {
         background: #480248;
@@ -116,7 +120,9 @@ h3 {
 
 @media screen and (max-width: 425px)
 {
-    
+    .input-group {
+        flex-direction: column;
+    }
 }
 
 

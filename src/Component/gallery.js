@@ -113,7 +113,7 @@ export default class Gallery extends Component {
                     <input type="text" className="form-control" placeholder="ex: Jack Reacher" value={this.state.inputSearch}
                         onChange={this.changeInput} />
                     <div className="input-group-append">
-                        <button className="btn" type="submit" onClick={this.clickSearch}>Rechercher</button>
+                        <button className="btn" type="submit" onClick={this.clickSearch}>Search</button>
                     </div>
                 </div>
                 {
