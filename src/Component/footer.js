@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faCommentDots, falinkedin, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 export default class Footer extends Component {

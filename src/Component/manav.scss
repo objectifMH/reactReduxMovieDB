@@ -7,8 +7,6 @@
     height: 50px;
 }
 
-
-
 .manav-ul {
     display: flex;
     flex-direction: column;
@@ -26,12 +24,20 @@
     font-weight: bolder;
     font-size: x-large;
     letter-spacing: 1px;
-
-    
     text-shadow:rgba(0,0,0,0.75) 3px 4px;
-
 }
 
 a.link-logo {
     padding: 0;
 }
+
+
+
+@media (max-width: 990px) {
+    .navbar-nav {
+        background:  black !important;
+        box-shadow: 3px 4px 12px rgba(0,0,0,.75);
+    }
+}
+
+

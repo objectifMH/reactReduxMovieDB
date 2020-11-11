@@ -16,14 +16,14 @@ class Favoris extends Component {
     render() { 
 
         return (
-            <div className=" container-list">
-                <h3>Mes Films Favoris:</h3>
+            <div className=" container container-list">
+                <h3>My favorite movies:</h3>
                 {
                     this.props.films.length !== 0 ? 
                     this.props.films.map( film => 
                         <div className="m-2 div-film" key={film.id}> 
-                            <FilmFav film={film}></FilmFav>
-                            <FontAwesomeIcon icon={faTrash} onClick={() => this.supprimeFilmFav(film)}/>
+                            <FilmFav film={film} clickHandler={()=> this.supprimeFilmFav(film)}></FilmFav>
+                            {/* <FontAwesomeIcon icon={faTrash} onClick={() => this.supprimeFilmFav(film)}/> */}
                         </div>
                         )                      :
                         <p className="your-list">Your List is empty </p>

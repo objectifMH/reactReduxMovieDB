@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 //import './filmFav.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faCheckCircle} from '@fortawesome/free-solid-svg-icons';
+import { faTimes} from '@fortawesome/free-solid-svg-icons';
 
 export default class FilmFav extends Component {
 
@@ -26,16 +26,19 @@ export default class FilmFav extends Component {
         //console.log(this.props.film)
 
         return (
-            <Link className="nav-link link-people" to={'/film/' + this.props.film.id+'/'+type}  >
+            
             <div className=" container my-container-film">
                 <div className="gauche">
-
+                <Link className="nav-link link-people" to={'/film/' + this.props.film.id+'/'+type}  >
+                    
                     {
                         this.props.film['poster_path'] !== null ? 
                         <img  src={this.state.film.cover + this.props.film['poster_path']} alt={"Cover "+this.props.film.title}></img>
                                                                 :
                         <img  src={process.env.PUBLIC_URL +'/no_image.png'}  alt={this.props.film.title}/>                                         
                     }
+                    
+                </Link>
                 </div>
                 <div className="centre">
                 <Link className="nav-link link-people" to={'/film/' + this.props.film.id+'/'+type}  >
@@ -52,17 +55,10 @@ export default class FilmFav extends Component {
                     </p>
                 </div>
                 <div className="droite">
-                    {
-                        this.state.film.isPresent === true ? 
-                        <FontAwesomeIcon icon={faCheckCircle}  /> : 
-                        <FontAwesomeIcon icon={faTimes}  />
-                    }
-                    
-                
+                    <FontAwesomeIcon icon={faTimes}  onClick={this.props.clickHandler}/>
                 </div>
                 
             </div>
-            </Link>
         )
     }
 }
